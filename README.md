@@ -31,9 +31,17 @@ stylistic feature
 <img width="725" height="436" alt="image" src="https://github.com/user-attachments/assets/5549426c-763d-439f-b011-2979e18acbb9" />
 
 
+นอกจากนี้ยังมีประเด็นที่น่าสนใจอีกอย่าง
 
-# 2.	Reproduce its results
+<img width="735" height="224" alt="image" src="https://github.com/user-attachments/assets/305f0d2d-7e06-4092-b164-17cae2f80919" />
+
+
+# 2.	Reproduce its results.
+
+ผลที่ได้
 
 
 
 # 3.	Propose new ideas based on your research.
+
+จากการศึกษา
