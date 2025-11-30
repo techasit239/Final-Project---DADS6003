@@ -3,12 +3,13 @@
 
 <img width="935" height="491" alt="image" src="https://github.com/user-attachments/assets/0d0ad070-3c1b-4109-8f0e-b01d3b6d0ca5" />
 
-1.	Read and understand the paper.
+
+# 1.	Read and understand the paper.
 
 <img width="1494" height="628" alt="image" src="https://github.com/user-attachments/assets/6c9ee818-b15e-45c6-8aa1-d6637e2551a8" />
 
 
-# Feature type
+## Feature type
 lexical feature
 
 systactic feature
