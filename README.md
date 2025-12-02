@@ -10,26 +10,37 @@
 
 
 ## Feature type
-lexical feature
+lexical feature (16.7%)
 
-systactic feature
+systactic feature (18.3%)
 
-punctuation feature
+punctuation feature (16.7%)
 
-readability feature
+readability feature (16.7%)
 
-word category feature
+word category feature (11.7%)
 
-email-specific feature
+email-specific feature (6.7%)
 
-complexity feature
+complexity feature (5.0%)
 
-stylistic feature
+stylistic feature (8.3%)
+
+<img width="901" height="357" alt="image" src="https://github.com/user-attachments/assets/532e27b6-2825-471a-9f49-665bbafb4cdf" />
 
 
 
 <img width="725" height="436" alt="image" src="https://github.com/user-attachments/assets/5549426c-763d-439f-b011-2979e18acbb9" />
 
+งานวิจัยได้ใช้แบบจำลอง ML ยอดนิยม 4 แบบ โดยมีเป้าหมายเพื่อประเมินประสิทธิภาพในการใช้คุณลักษณะทางสไตล์การเขียนเพื่อจำแนกอีเมล
+1. Logistice Regression
+
+2. SVM
+
+3. Random Forest
+
+4. XGBoost 
+   
 
 นอกจากนี้ยังมีประเด็นที่น่าสนใจอีกอย่าง
 
