@@ -63,11 +63,11 @@ _ตารางที่ 3 ประสิทธิภาพของแบบ�
 
 
 
-<img width="800" height="600" alt="{B7B6F364-4347-4B20-816A-AB6DBA3F5D43}" src="https://github.com/user-attachments/assets/e94346a4-0453-4452-ad98-d00b21f3ca21" />  
+<img width="800" height="600" alt="{4F32B022-F510-4F26-8FC6-75B7C32402B1}" src="https://github.com/user-attachments/assets/416fdd27-5ad3-4910-bd8e-ee38c3e189a9" />
 
 _ตารางที่ 4 Evaluation table from [original stylometric features]_
 
-<img width="434" height="462" alt="{B8D76622-A7D7-4CF0-BB91-7DD29E4911DB}" src="https://github.com/user-attachments/assets/f4fd5eea-f551-474d-96b0-6229b642271b" />  
+<img width="535" height="590" alt="{AA13E833-CE31-444B-A04D-B9D289332014}" src="https://github.com/user-attachments/assets/e9342708-c28e-49d8-bd83-244889512521" />
 
 _ตารางที่ 5 Confusion matrix table from [original stylometric features]_
 
@@ -169,15 +169,15 @@ flowchart TD
 # Experiment : Reproduce Stylometric only
 
 
-<img width="800" height="600" alt="{B7B6F364-4347-4B20-816A-AB6DBA3F5D43}" src="https://github.com/user-attachments/assets/e94346a4-0453-4452-ad98-d00b21f3ca21" />  
+<img width="800" height="600" alt="{4F32B022-F510-4F26-8FC6-75B7C32402B1}" src="https://github.com/user-attachments/assets/416fdd27-5ad3-4910-bd8e-ee38c3e189a9" />
 
 _ตารางที่ 6 ผลลัพธ์การ Reproduce จาก Test data_  
 
-<img width="434" height="462" alt="{B8D76622-A7D7-4CF0-BB91-7DD29E4911DB}" src="https://github.com/user-attachments/assets/f4fd5eea-f551-474d-96b0-6229b642271b" />  
+<img width="535" height="590" alt="{AA13E833-CE31-444B-A04D-B9D289332014}" src="https://github.com/user-attachments/assets/e9342708-c28e-49d8-bd83-244889512521" />
 
 _ตารางที่ 7 Confusion matrix ของ Reproduce จาก Test data_  
 
-<img width="1002" height="451" alt="image" src="https://github.com/user-attachments/assets/1c3e916a-1610-4275-a19c-8cb175a1ba63" />  
+<img width="1002" height="451" alt="image" src="https://github.com/user-attachments/assets/2056ce9f-2578-480f-8e85-bcb3cb42fc8e" />
 
 _แผนภูมิที่ 1 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost_   
 
