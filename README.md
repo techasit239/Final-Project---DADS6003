@@ -197,7 +197,7 @@ flowchart TD
 
 # Best Experiment & Best Model
 
-<img width="822" height="621" alt="{56670471-A412-47B4-B5C6-003DA7F57131}" src="https://github.com/user-attachments/assets/b6829352-f1f4-4ff0-a1e9-3fc912703960" />
+<img width="685" height="518" alt="{56670471-A412-47B4-B5C6-003DA7F57131}" src="https://github.com/user-attachments/assets/b6829352-f1f4-4ff0-a1e9-3fc912703960" />
 
 
 
