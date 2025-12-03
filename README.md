@@ -72,10 +72,26 @@
    - Naive Bayes (Non-iterative model) ให้ผลลัพธ์ที่ค่อนข้าง Conservative มาก คือ ได้ Precision สูงมากที่ 83% ในทางกลับกันกลับได้ Recall แค่ 38% เท่านั้น ทำให้ F1-score ร่วงไปอยู่อันดับท้ายสุด จึงตีความได้ว่า Model แทบจะจับ หรือ กวาดพวก Phishing email ไม่ได้เลย แต่ถ้าจับได้คือส่วนใหญ่จะใช่ แต่ในงานนี้ Recall แทบจะเป็นตัวที่มีความสำคัญที่สุด เนื่องจากต้องปล่อยให้ Phishing email หลุดไปน้อยที่สุด ดังนั้นจึงสรุปได้ว่า Model Naive Baes ไม่ควรใช้ train ด้วย Stylometric feature  
 
 
-# 3.	Propose new ideas based on your research.
+# 3. Propose new ideas based on your research
 
-- Project นี้เป็นการพัฒนาระบบตรวจจับ Phishing Email โดยต่อยอดจากงานวิจัยเดิม ด้วยการเปรียบเทียบระหว่างเทคนิค Stylometric Analysis (แบบเดิม) กับ NLP + Advanced Features (แบบใหม่) ผ่านการทดลอง 4 รูปแบบ ดังนี้
+Project นี้เป็นการพัฒนาระบบตรวจจับ **Phishing Email** โดยมีเป้าหมายเพื่อต่อยอดจากงานวิจัยเดิม (Reproduce) และนำเสนอแนวทางใหม่ (New Ideas) เพื่อเพิ่มประสิทธิภาพความแม่นยำ โดยเปรียบเทียบระหว่างเทคนิค **Stylometric Analysis** (การวิเคราะห์สไตล์การเขียนแบบเดิม) กับการใช้ **NLP (TF-IDF)** และ **Advanced Features** (พฤติกรรมการหลอกลวง)
 
+เราได้ออกแบบการทดลอง (Experimental Design) ออกเป็น 4 รูปแบบ เพื่อวัดผลกระทบของ Feature แต่ละชุด ดังนี้:
+
+### 🧪 Experimental Setup
+
+| การทดลอง (Experiment) | รายละเอียด (Description) | Features ที่ใช้ |
+| :--- | :--- | :--- |
+| **🔁 Reproduce** | **Baseline:** จำลองผลลัพธ์ตาม Paper ต้นฉบับ | **Stylometric Only** <br>*(ไม่รวม 8 Advanced Features)* |
+| **💡 Experiment A** | **Behavioral:** เพิ่มฟีเจอร์จับพฤติกรรมคนโกง | **Stylometric + 8 Advanced Features** |
+| **💡 Experiment B** | **Content-based:** ใช้ NLP จับ Keywords สำคัญ | **TF-IDF Only** |
+| **💡 Experiment C** | **Hybrid:** รวมทุกเทคนิคเข้าด้วยกัน | **Stylometric + TF-IDF + Advanced** |
+
+---
+
+### 🛠️ Project Workflow
+
+แผนภาพด้านล่างแสดงขั้นตอนการทำงาน (Pipeline) ตั้งแต่การเตรียมข้อมูล, การสร้าง Features ทั้ง 3 กลุ่ม, การแยกสายการทดลอง, ไปจนถึงการจูนโมเดลและการประเมินผลลัพธ์สุดท้าย
 
 ```mermaid
 flowchart TD
