@@ -184,23 +184,32 @@ flowchart TD
 
 # Experiment C : Hybrid >> [Stylometric + 8 Advanced Features] + [TF-IDF]
 
-<img width="800" height="600" alt="{E7B7E454-36C9-4F22-8A7B-454177D98CB3}" src="https://github.com/user-attachments/assets/56691362-871f-4b67-9fd4-bb8a7a28fe9e" />
 
-<img width="374" height="386" alt="{F256B857-45C3-48F7-8FC5-8BDB42F87A54}" src="https://github.com/user-attachments/assets/a44b37ab-2409-4a13-82e4-69db185ff2f6" />
+<img width="800" height="600" alt="{F034AAB4-646F-4B4A-9A99-981813F5FFD8}" src="https://github.com/user-attachments/assets/166bf6bb-5a20-4d24-9f87-8b446621f183" />
 
-<img width="545" height="225" alt="{33A7F80A-317B-46C5-B86A-BE81A9F4E381}" src="https://github.com/user-attachments/assets/9c717ba1-e6a6-46c5-9d7d-95eff45ea431" />
+
+<img width="470" height="510" alt="{034C1F4E-7057-46C1-B922-0A5F542D761F}" src="https://github.com/user-attachments/assets/a15f06a6-4b76-41e5-983f-87679fbf8cfb" />
+
+
+<img width="1065" height="451" alt="image" src="https://github.com/user-attachments/assets/228f6d4f-37a6-4f44-9899-4b42ad266102" />
+
 
 
 # Best Experiment & Best Model
 
-<img width="568" height="420" alt="{2792B258-9378-49B9-A123-0638046B6438}" src="https://github.com/user-attachments/assets/0a534117-5870-46af-8c36-d1eb1d85bc23" />
+<img width="822" height="621" alt="{56670471-A412-47B4-B5C6-003DA7F57131}" src="https://github.com/user-attachments/assets/b6829352-f1f4-4ff0-a1e9-3fc912703960" />
+
 
 
 # Check Best model overfitting
 
-<img width="666" height="424" alt="{EA90A41B-707C-4549-B820-49F2BE5B4AAE}" src="https://github.com/user-attachments/assets/bdf60ecb-92df-48ed-ad52-5cdc54728595" />
+<img width="846" height="547" alt="image" src="https://github.com/user-attachments/assets/c34c81d0-fc63-43e5-a88c-c95af51c9b66" />
 
 
+
+# Feature selection analysis on [best model from best experiment]
+
+<img width="858" height="284" alt="{8C13E1A9-73B2-4490-A39A-A47433254471}" src="https://github.com/user-attachments/assets/b298609e-344b-4712-83e4-44bade6405d5" />
 
 
 
