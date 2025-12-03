@@ -74,5 +74,20 @@
 
 # 3.	Propose new ideas based on your research.
 
-จากการศึกษา
-๔ 838
+New ideas work flow
+graph TD
+    A[Raw Emails (Train/Test)] --> B{Feature Engineering}
+    B -->|1. Stylometric| C[Reproduce Set (65 Feats)]
+    B -->|2. Advanced| D[Exp A: Stylo + Adv]
+    B -->|3. TF-IDF| E[Exp B: NLP Only]
+    B -->|All Combined| F[Exp C: Hybrid]
+    
+    C --> G[Auto-Tuning (Optuna)]
+    D --> G
+    E --> G
+    F --> G
+    
+    G --> H{9 ML Models}
+    H --> I[Evaluate F1-score (Unseen Test)]
+    I --> J[Select Best Model]
+    J --> K[Feature Importance & Cost Analysis]
