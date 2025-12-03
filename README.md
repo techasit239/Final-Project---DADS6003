@@ -93,7 +93,7 @@ Project นี้เป็นการพัฒนาระบบตรวจจ
 
 แผนภาพด้านล่างแสดงขั้นตอนการทำงาน (Pipeline) ตั้งแต่การเตรียมข้อมูล, การสร้าง Features ทั้ง 3 กลุ่ม, การแยกสายการทดลอง, ไปจนถึงการจูนโมเดลและการประเมินผลลัพธ์สุดท้าย
 
-```mermaid
+   ```mermaid
 flowchart TD
     subgraph Input ["📂 Data Preparation"]
         Raw["Raw Emails (Train/Test)"] --> Clean["Preprocessing"];
@@ -124,9 +124,17 @@ flowchart TD
         Metrics --> Winner["🏆 Best Model Selection"];
     end
 
+    subgraph Optimization ["🔍 Feature Selection (Best Model)"]
+        Winner --> Importance["Analyze Feature Importance"];
+        Importance --> TopK["Select Top-K Features (10, 20, 30)"];
+        TopK --> Retrain["Retrain & Re-evaluate"];
+        Retrain --> Final["🏁 Final Optimization Result"];
+    end
+
     style Winner fill:#f9f,stroke:#333,stroke-width:4px
     style ExpB fill:#bbf,stroke:#333,stroke-width:2px
-```
+    style Final fill:#d4edda,stroke:#155724,stroke-width:2px,stroke-dasharray: 5 5
+   ```
 
 ---
 
