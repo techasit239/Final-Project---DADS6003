@@ -132,8 +132,45 @@ flowchart TD
 
 ### 📋 Result
 
+# Experiment : Reproduce Stylometric only
+
 <img width="800" height="600" alt="{05D4AD2D-A912-4724-A4E4-2A25CDDEC12F}" src="https://github.com/user-attachments/assets/3d1f0cf0-344e-4caa-beb8-76a22fae141e" />
 
+<img width="374" height="386" alt="{474366A0-C70E-4648-B9C3-178C94C77019}" src="https://github.com/user-attachments/assets/ac02ca8f-06cb-4995-8d4f-849773fca692" />
+
 <img width="594" height="276" alt="{2240CD48-DC33-4DEC-9A4B-5BCF041A3159}" src="https://github.com/user-attachments/assets/62123edd-dbd3-4ed4-8983-5b7df021309f" />
+
+
+# Experiment A : Stylometric + 8 Advanced Features
+
+<img width="800" height="600" alt="{74648B7A-48E8-4BC0-ABCB-A4B2E4C8C6C6}" src="https://github.com/user-attachments/assets/2c37d4a6-f03f-46f5-a678-872dd9028828" />
+
+<img width="374" height="386" alt="{F804FC69-172C-4B35-9C9B-0E43E38F5B6E}" src="https://github.com/user-attachments/assets/1125d90f-c875-4651-9e53-93cb3135e04c" />
+
+<img width="580" height="237" alt="{121AC9BB-95D9-4BD1-972D-4C4043C8C980}" src="https://github.com/user-attachments/assets/610bfaba-1f06-45ab-ac6a-c4ab736d15a7" />
+
+
+# Experiment B : TF-IDF only
+
+<img width="800" height="600" alt="{1AB13AA2-EB63-403D-AB6F-E9DA699E95E2}" src="https://github.com/user-attachments/assets/5f183a11-d02c-4c86-9d53-8c75ed467bdd" />
+
+<img width="374" height="386" alt="{38952657-B9AD-4183-B914-74224371A108}" src="https://github.com/user-attachments/assets/4fec280f-fa35-4196-b41b-33e1f43070ce" />
+
+
+# Experiment C : Stylometric + 8 Advanced Features + **TF-IDF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
