@@ -57,9 +57,11 @@ stylistic feature (8.3%) คุณสมบัติโวหาร พิจา
 
 สร้าง Stylometric Features ตามที่ระบุใน Paper ด้วยการคำนวณจริง (Real Calculation)
 ผลลัพธ์ที่ได้
+ตารางที่ ... Evaluation table from [original stylometric features]
 <img width="800" height="600" alt="{D8F03CC6-E99E-4067-94AB-2C52CFED0E6C}" src="https://github.com/user-attachments/assets/41f81a80-ca43-4b8a-9e04-c1798c0a7d06" />
 
-
+ตารางที่ ... Confusion matrix table from [original stylometric features]
+<img width="800" height="600" alt="{F9FED3DA-F534-4983-B134-D5A6FAB69646}" src="https://github.com/user-attachments/assets/ec094494-8875-4f48-b750-412d9da90f39" />
 
 
 # 3.	Propose new ideas based on your research.
