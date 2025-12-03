@@ -1,5 +1,5 @@
 # Final-Project---DADS6003
-## กลุ่ม 300 (ที่แปลว่า TF-IDF set max_features = 300)
+## กลุ่ม 300⚔️ (ที่แปลว่า TF-IDF set max_features = 300)
 
 <img width="935" height="491" alt="image" src="https://github.com/user-attachments/assets/0d0ad070-3c1b-4109-8f0e-b01d3b6d0ca5" />
 
@@ -142,11 +142,15 @@ flowchart TD
 
 # Experiment : Reproduce Stylometric only
 
-<img width="800" height="600" alt="{05D4AD2D-A912-4724-A4E4-2A25CDDEC12F}" src="https://github.com/user-attachments/assets/3d1f0cf0-344e-4caa-beb8-76a22fae141e" />
 
-<img width="374" height="386" alt="{474366A0-C70E-4648-B9C3-178C94C77019}" src="https://github.com/user-attachments/assets/ac02ca8f-06cb-4995-8d4f-849773fca692" />
+<img width="800" height="600" alt="{B7B6F364-4347-4B20-816A-AB6DBA3F5D43}" src="https://github.com/user-attachments/assets/e94346a4-0453-4452-ad98-d00b21f3ca21" />
 
-<img width="594" height="276" alt="{2240CD48-DC33-4DEC-9A4B-5BCF041A3159}" src="https://github.com/user-attachments/assets/62123edd-dbd3-4ed4-8983-5b7df021309f" />
+
+<img width="434" height="462" alt="{B8D76622-A7D7-4CF0-BB91-7DD29E4911DB}" src="https://github.com/user-attachments/assets/f4fd5eea-f551-474d-96b0-6229b642271b" />
+
+
+<img width="1002" height="451" alt="image" src="https://github.com/user-attachments/assets/1c3e916a-1610-4275-a19c-8cb175a1ba63" />
+
 
 
 # Experiment A : Stylometric + 8 Advanced Features
