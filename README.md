@@ -32,9 +32,10 @@
 
 <img width="901" height="357" alt="image" src="https://github.com/user-attachments/assets/532e27b6-2825-471a-9f49-665bbafb4cdf" />
 
-
+*ตารางที่ 1 การประเมินค่าของแบบจำลองแต่ละประเภทในงานวิจัย*
 
 <img width="725" height="436" alt="image" src="https://github.com/user-attachments/assets/5549426c-763d-439f-b011-2979e18acbb9" />
+*ตารางที่ 2 Confusion matrix ของแบบจำลองแต่ละประเภทในงานวิจัย*
 
 งานวิจัยได้ใช้แบบจำลอง Machine Learning ในด้านการจำแนก (Classification) ที่เป็นที่นิยมจำนวน 4 แบบจำลอง โดยมีเป้าหมายเพื่อประเมินประสิทธิภาพในการใช้คุณลักษณะทางสไตล์การเขียนเพื่อจำแนกอีเมล  
 **1. Logistic Regression**
@@ -49,6 +50,7 @@
 
 
 <img width="735" height="224" alt="image" src="https://github.com/user-attachments/assets/305f0d2d-7e06-4092-b164-17cae2f80919" />
+*ตารางที่ 3 ประสิทธิภาพของแบบจำลอง XGBoost เมื่อมีการลบ Feature แต่ละขั้น*
 
 
 # 2.	Reproduce its results.
@@ -58,14 +60,12 @@
 ผลลัพธ์ที่ได้จาก Unseen data (test dataset)
 
 
-**ตารางที่ ... Evaluation table from [original stylometric features]**
 
 <img width="800" height="600" alt="{B7B6F364-4347-4B20-816A-AB6DBA3F5D43}" src="https://github.com/user-attachments/assets/e94346a4-0453-4452-ad98-d00b21f3ca21" />
-
-
-**ตารางที่ ... Confusion matrix table from [original stylometric features]**
+*ตารางที่ 4 Evaluation table from [original stylometric features]*
 
 <img width="434" height="462" alt="{B8D76622-A7D7-4CF0-BB91-7DD29E4911DB}" src="https://github.com/user-attachments/assets/f4fd5eea-f551-474d-96b0-6229b642271b" />
+*ตารางที่ 5 Confusion matrix table from [original stylometric features]*
 
 
    **สรุปผลลัพธ์**
@@ -146,25 +146,26 @@ flowchart TD
 
 
 <img width="800" height="600" alt="{B7B6F364-4347-4B20-816A-AB6DBA3F5D43}" src="https://github.com/user-attachments/assets/e94346a4-0453-4452-ad98-d00b21f3ca21" />
-
+*ตารางที่ 6 ผลลัพธ์การ Reproduce จาก Test data* 
 
 <img width="434" height="462" alt="{B8D76622-A7D7-4CF0-BB91-7DD29E4911DB}" src="https://github.com/user-attachments/assets/f4fd5eea-f551-474d-96b0-6229b642271b" />
-
+*ตารางที่ 7 Confusion matrix ของ Reproduce จาก Test data* 
 
 <img width="1002" height="451" alt="image" src="https://github.com/user-attachments/assets/1c3e916a-1610-4275-a19c-8cb175a1ba63" />
-
+*แผนภูมิที่ 1 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost* 
 
 
 # Experiment A : Stylometric + 8 Advanced Features
 
 
 <img width="800" height="600" alt="{55C532B4-68F1-4A10-8D36-F89C40817CC8}" src="https://github.com/user-attachments/assets/2e5083b6-4477-4f88-90fb-94bca8512c21" />
-
+*ตารางที่ 8 ผลลัพธ์การ Reproduce และเพิ่ม 8 Advance Features* 
 
 <img width="422" height="462" alt="{143567E3-F421-4CB5-9A92-C1244BB3AD04}" src="https://github.com/user-attachments/assets/b9eaf958-5bca-41ef-9d3f-c404cf7dd073" />
-
+*ตารางที่ 9 Confusion matrix ของการทำ Reproduce และเพิ่ม 8 Advance Features* 
 
 <img width="1073" height="451" alt="image" src="https://github.com/user-attachments/assets/72c7d77d-09ee-421e-ab7b-e8cec3c8238a" />
+*แผนภูมิที่ 2 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost (รวม Advance Feature)* 
 
 
 
@@ -172,26 +173,26 @@ flowchart TD
 
 
 <img width="800" height="600" alt="{9A4CECF7-F93E-4B75-9975-864C215BEE48}" src="https://github.com/user-attachments/assets/dc01e6fc-b419-4a0c-a7d2-d834c7a8a90b" />
-
+*ตารางที่ 10 ผลลัพธ์การ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF* 
 
 <img width="428" height="466" alt="{EC9463A2-68EB-4E4C-8C65-72580F291FCA}" src="https://github.com/user-attachments/assets/9be2e5f6-31e6-4a20-bd45-5e48211bb1c1" />
-
+*ตารางที่ 11 Confusion matrix ของการทำ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF* 
 
 <img width="946" height="451" alt="image" src="https://github.com/user-attachments/assets/6128e70b-9a79-42e9-9f71-d71d72c736ef" />
-
+*แผนภูมิที่ 3 Top 10 feature ที่มีอิทธิพลต่อ Model SVM (รวมตัวแปรจากการทำ TF-IDF)*
 
 
 # Experiment C : Hybrid >> [Stylometric + 8 Advanced Features] + [TF-IDF]
 
 
 <img width="800" height="600" alt="{F034AAB4-646F-4B4A-9A99-981813F5FFD8}" src="https://github.com/user-attachments/assets/166bf6bb-5a20-4d24-9f87-8b446621f183" />
-
+*ตารางที่ 12 ผลลัพธ์การ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF และ 8 Advance Feature* 
 
 <img width="470" height="510" alt="{034C1F4E-7057-46C1-B922-0A5F542D761F}" src="https://github.com/user-attachments/assets/a15f06a6-4b76-41e5-983f-87679fbf8cfb" />
-
+*ตารางที่ 13 Confusion matrix และเพิ่มตัวแปรจากวิธีการ TF-IDF และ 8 Advance Feature*
 
 <img width="1065" height="451" alt="image" src="https://github.com/user-attachments/assets/228f6d4f-37a6-4f44-9899-4b42ad266102" />
-
+*แผนภูมิที่ 4 Top 10 feature ที่มีอิทธิพลต่อ Model Random Forest (รวมตัวแปรจากการทำ TF-IDF และ 8 Advance Feature)*
 
 
 # Best Experiment & Best Model
