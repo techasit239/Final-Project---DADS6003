@@ -46,7 +46,6 @@
 **4. XGBoost**
    
 โดยในการทำแบบจำลอง จะใช้ข้อมูล email แปลงเป็น Feature ตามที่กำหนด ทั้ง 60 แบบ ก่อนนำเข้าแบบจำลอง
-นอกจากนี้ยังมีประเด็นที่น่าสนใจอีกอย่าง
 
 
 <img width="735" height="224" alt="image" src="https://github.com/user-attachments/assets/305f0d2d-7e06-4092-b164-17cae2f80919" />
