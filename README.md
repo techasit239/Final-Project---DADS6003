@@ -37,13 +37,13 @@
 <img width="725" height="436" alt="image" src="https://github.com/user-attachments/assets/5549426c-763d-439f-b011-2979e18acbb9" />
 
 งานวิจัยได้ใช้แบบจำลอง Machine Learning ในด้านการจำแนก (Classification) ที่เป็นที่นิยมจำนวน 4 แบบจำลอง โดยมีเป้าหมายเพื่อประเมินประสิทธิภาพในการใช้คุณลักษณะทางสไตล์การเขียนเพื่อจำแนกอีเมล
-1. Logistic Regression
+**1. Logistic Regression**
 
-2. SVM (Support Vector Machine)
+**2. SVM (Support Vector Machine)**
 
-3. Random Forest
+**3. Random Forest**
 
-4. XGBoost 
+**4. XGBoost**
    
 โดยในการทำแบบจำลอง จะใช้ข้อมูล email แปลงเป็น Feature ตามที่กำหนด ทั้ง 60 แบบ ก่อนนำเข้าแบบจำลอง
 นอกจากนี้ยังมีประเด็นที่น่าสนใจอีกอย่าง
