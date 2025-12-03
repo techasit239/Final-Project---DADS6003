@@ -73,7 +73,7 @@ _ตารางที่ 5 Confusion matrix table from [original stylometric fe
 
 
    **สรุปผลลัพธ์**
-   - จากการ reproduce โดยอาศัยการสร้าง feature จากเทคนิค stylometric ตามงานวิจัยอย่างเดียว พบว่า Model ประเภท Gradient Boosting สมัยใหม่ ได้แก่ XGBoost, LightGBM และ CatBoost ให้ประสิทธิภาพในการจับ Phishing email ได้ดีที่สุด โดยมีค่า Recall, Precision และ F1-score เท่ากันทั้ง 3 Models ที่ 85%, 92% และ 88% ตามลำดับ จึงสามารถตีความได้ว่า ถ้าเป็น feature แบบ stylometric เพียงอย่างเดียว เหล่า Model Boosting จะเป็น Model ที่เหมาะสมที่สุด เพราะ Stylometric feature เป็น feature ที่มีความซับซ้อนในการประเมินด้านภาษา ไม่ใช่เส้นตรง (Non-linear) ซึ่ง Model กลุ่ม Boosting เป็น Model ที่เก่งในด้านการสร้างเงื่อนไขซับซ้อน จากการที่ตัวมันอาศัยการ improve ตัวเองไปเรื่อยๆจาก data subset ตัวก่อนๆ
+   - จากการ reproduce โดยอาศัยการสร้าง feature จากเทคนิค stylometric ตามงานวิจัยอย่างเดียว พบว่า Model ประเภท Gradient Boosting สมัยใหม่ ได้แก่ XGBoost, LightGBM และ CatBoost ให้ประสิทธิภาพในการจับ Phishing email ได้ดีที่สุด โดยมีค่า Recall, Precision และ F1-score เท่ากันทั้ง 3 Models ที่ 77%, 91% และ 83% ตามลำดับ จึงสามารถตีความได้ว่า ถ้าเป็น feature แบบ stylometric เพียงอย่างเดียว เหล่า Model Boosting จะเป็น Model ที่เหมาะสมที่สุด เพราะ Stylometric feature เป็น feature ที่มีความซับซ้อนในการประเมินด้านภาษา ไม่ใช่เส้นตรง (Non-linear) ซึ่ง Model กลุ่ม Boosting เป็น Model ที่เก่งในด้านการสร้างเงื่อนไขซับซ้อน จากการที่ตัวมันอาศัยการ improve ตัวเองไปเรื่อยๆจาก data subset ตัวก่อนๆ
    - ในทางกลับกันพวก Model ตัวพื้นฐานที่เป็นเส้นตรง (Linear) เช่น Linear Regression, SVM พอต้องใช้ stylometric feature ในการ train model ให้ประสิทธิภาพออกมาได้แค่ระดับกลางๆที่ F1~80% ซึ่งน้อยกว่า Model ประเภท Boosting อย่างเห็นได้ชัด เนื่องจาก Stylometric feature ไม่ได้แปรผันตรงไปตรงมา เหมือนพวก TF-IDF เสมอไป เช่น ประโยค/คำศัพท์ ยิ่งยาวยิ่งค่าสูง บาง feature จำเป็นต้องอาศัยความรู้ด้านภาษาศาสตร์เชิงลึกเข้ามาวิเคราะห์เพื่อให้คะแนน ทำให้ Model เชิงเส้นตรงตีความได้ยาก
    - ในส่วน Naive Bayes (Non-iterative model) ให้ผลลัพธ์ที่ค่อนข้าง Conservative เนื่องจากได้ Precision สูงมากที่ 83% แต่ในทางกลับกันกลับได้ Recall แค่ 38% เท่านั้น ส่งผลให้ F1-score ร่วงไปอยู่อันดับท้ายสุด จึงตีความได้ว่า Model แทบจะจับ หรือ กวาดพวก Phishing email ไม่ได้เลย แต่ถ้าจับได้คือส่วนใหญ่จะใช่ (มีความแม่นยำ แต่กวาดได้น้อย) แต่ในงานนี้ Recall แทบจะเป็นตัวที่มีความสำคัญที่สุด เนื่องจากต้องปล่อยให้ Phishing email หลุดไปน้อยที่สุด ดังนั้นจึงสรุปได้ว่า Model Naive Baes ไม่ควรใช้ train ด้วย Stylometric feature  
 
@@ -177,7 +177,7 @@ _ตารางที่ 6 ผลลัพธ์การ Reproduce จาก T
 
 _ตารางที่ 7 Confusion matrix ของ Reproduce จาก Test data_  
 
-<img width="1002" height="451" alt="image" src="https://github.com/user-attachments/assets/2056ce9f-2578-480f-8e85-bcb3cb42fc8e" />
+<img width="1002" height="451" alt="image" src="https://github.com/user-attachments/assets/ec176138-cfc4-449d-8f37-0613a457cca3" />
 
 _แผนภูมิที่ 1 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost_   
 
@@ -185,15 +185,15 @@ _แผนภูมิที่ 1 Top 10 feature ที่มีอิทธิ�
 # Experiment A : Stylometric + 8 Advanced Features
 
 
-<img width="800" height="600" alt="{55C532B4-68F1-4A10-8D36-F89C40817CC8}" src="https://github.com/user-attachments/assets/2e5083b6-4477-4f88-90fb-94bca8512c21" />  
+<img width="800" height="600" alt="{F4AF9952-1D80-4426-898E-A74154BF340F}" src="https://github.com/user-attachments/assets/399166ba-3733-4d06-8a75-97f78508a94a" />
 
 _ตารางที่ 8 ผลลัพธ์การ Reproduce และเพิ่ม 8 Advance Features_  
 
-<img width="422" height="462" alt="{143567E3-F421-4CB5-9A92-C1244BB3AD04}" src="https://github.com/user-attachments/assets/b9eaf958-5bca-41ef-9d3f-c404cf7dd073" />  
+<img width="530" height="573" alt="{AB50F651-0F6E-4DC7-A85E-96EEBE38AEA2}" src="https://github.com/user-attachments/assets/76bace5c-6a24-43cc-8279-c1a8a394a462" />
 
 _ตารางที่ 9 Confusion matrix ของการทำ Reproduce และเพิ่ม 8 Advance Features_  
 
-<img width="1073" height="451" alt="image" src="https://github.com/user-attachments/assets/72c7d77d-09ee-421e-ab7b-e8cec3c8238a" />  
+<img width="1073" height="451" alt="image" src="https://github.com/user-attachments/assets/7e6a9f9c-d316-40f6-ad25-f2f9e2fa7d02" />
 
 _แผนภูมิที่ 2 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost (รวม Advance Feature)_   
 
@@ -202,15 +202,15 @@ _แผนภูมิที่ 2 Top 10 feature ที่มีอิทธิ�
 # Experiment B : TF-IDF only
 
 
-<img width="800" height="600" alt="{9A4CECF7-F93E-4B75-9975-864C215BEE48}" src="https://github.com/user-attachments/assets/dc01e6fc-b419-4a0c-a7d2-d834c7a8a90b" />  
+<img width="800" height="600" alt="{3DF8F4E0-48D5-4D52-96BB-E4557BE2CF4E}" src="https://github.com/user-attachments/assets/edecec60-e1fb-4144-b36a-21722c698beb" />
 
 _ตารางที่ 10 ผลลัพธ์การ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF_   
 
-<img width="428" height="466" alt="{EC9463A2-68EB-4E4C-8C65-72580F291FCA}" src="https://github.com/user-attachments/assets/9be2e5f6-31e6-4a20-bd45-5e48211bb1c1" />  
+<img width="535" height="588" alt="{5EE6A487-495A-41F3-85BA-BB2F5AE27218}" src="https://github.com/user-attachments/assets/5ef7a515-2ae3-4f85-b9dd-d2602858b20b" />
 
 _ตารางที่ 11 Confusion matrix ของการทำ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF_  
 
-<img width="946" height="451" alt="image" src="https://github.com/user-attachments/assets/6128e70b-9a79-42e9-9f71-d71d72c736ef" />  
+<img width="946" height="451" alt="image" src="https://github.com/user-attachments/assets/c4245e93-5a53-48e0-8b50-7dcb3e64f606" />
 
 _แผนภูมิที่ 3 Top 10 feature ที่มีอิทธิพลต่อ Model SVM (รวมตัวแปรจากการทำ TF-IDF)_  
 
@@ -218,34 +218,35 @@ _แผนภูมิที่ 3 Top 10 feature ที่มีอิทธิ�
 # Experiment C : Hybrid >> [Stylometric + 8 Advanced Features] + [TF-IDF]
 
 
-<img width="800" height="600" alt="{F034AAB4-646F-4B4A-9A99-981813F5FFD8}" src="https://github.com/user-attachments/assets/166bf6bb-5a20-4d24-9f87-8b446621f183" />  
+<img width="800" height="600" alt="{02D2D0DB-F8B4-4CDF-8884-DCC82D07EECC}" src="https://github.com/user-attachments/assets/135483b0-643d-4cbd-8aee-6a8a4743a175" />
 
 _ตารางที่ 12 ผลลัพธ์การ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF และ 8 Advance Feature_  
 
-<img width="470" height="510" alt="{034C1F4E-7057-46C1-B922-0A5F542D761F}" src="https://github.com/user-attachments/assets/a15f06a6-4b76-41e5-983f-87679fbf8cfb" />  
+<img width="523" height="580" alt="{5007D3A1-1D73-47D3-9880-6721343CE9F3}" src="https://github.com/user-attachments/assets/7ec056d7-a804-48f0-9324-87c460deeb76" />
 
 _ตารางที่ 13 Confusion matrix และเพิ่มตัวแปรจากวิธีการ TF-IDF และ 8 Advance Feature_  
 
-<img width="1065" height="451" alt="image" src="https://github.com/user-attachments/assets/228f6d4f-37a6-4f44-9899-4b42ad266102" />  
+<img width="1065" height="451" alt="image" src="https://github.com/user-attachments/assets/552ec521-2bc2-4d1b-9d2b-2790f3c30c60" />
 
 _แผนภูมิที่ 4 Top 10 feature ที่มีอิทธิพลต่อ Model Random Forest (รวมตัวแปรจากการทำ TF-IDF และ 8 Advance Feature)_  
 
 
 # Best Experiment & Best Model
 
-<img width="685" height="518" alt="{56670471-A412-47B4-B5C6-003DA7F57131}" src="https://github.com/user-attachments/assets/b6829352-f1f4-4ff0-a1e9-3fc912703960" />
+<img width="768" height="515" alt="{6AD1C3F6-D882-43AC-A623-0090DA53BE6D}" src="https://github.com/user-attachments/assets/5a3ec026-13ca-4293-a2fa-2b1c1dffb96c" />
 
 
 
 # Check Best model overfitting
 
-<img width="846" height="547" alt="image" src="https://github.com/user-attachments/assets/c34c81d0-fc63-43e5-a88c-c95af51c9b66" />
+<img width="855" height="547" alt="image" src="https://github.com/user-attachments/assets/d8570448-83d3-4fb6-a685-21f8fc3bae65" />
 
 
 
 # Feature selection analysis on [best model from best experiment]
 
-<img width="858" height="284" alt="{8C13E1A9-73B2-4490-A39A-A47433254471}" src="https://github.com/user-attachments/assets/b298609e-344b-4712-83e4-44bade6405d5" />
+<img width="1050" height="350" alt="{C9F95754-EC37-4004-88BE-16D0B46F997C}" src="https://github.com/user-attachments/assets/8058e539-3d1a-44bc-8e5f-e71992b0b681" />
+
 
 
 
