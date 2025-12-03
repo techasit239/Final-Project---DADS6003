@@ -57,7 +57,7 @@ stylistic feature (8.3%) คุณสมบัติโวหาร พิจา
 
 สร้าง Stylometric Features ตามที่ระบุใน Paper ด้วยการคำนวณจริง (Real Calculation)
 
-ผลลัพธ์ที่ได้
+ผลลัพธ์ที่ได้จาก Unseen data (test dataset)
 
 ตารางที่ ... Evaluation table from [original stylometric features]
 
@@ -67,6 +67,8 @@ stylistic feature (8.3%) คุณสมบัติโวหาร พิจา
 
 <img width="384" height="412" alt="{52573E75-3F8A-4B87-B636-2280146CBEF2}" src="https://github.com/user-attachments/assets/d98696aa-7678-4d20-badb-46afdc09695b" />
 
+   สรุปผลลัพธ์
+   - จากการ reproduce โดยอาศัยการสร้าง feature จากเทคนิค stylometric ตามงานวิจัยอย่างเดียว พบว่าพวก Model ชนิด Gradient Boosting สมัยใหม่ทั้งหลาย เช่น XGBoost, LightGBM และ CatBoost ให้ประสิทธิภาพในการจับ Phishing email ได้ดีที่สุด โดยมีค่า Recall, Precision และ F1-score อยู่เท่ากันทั้ง 3 Models ที่ 77%, 91% และ 83% ตามลำดับ จึงสามารถตีความได้ว่า ถ้าเป็น feature แบบ stylometric เพียงอย่างเดียว เหล่า Model Boosting จะเป็น Model ที่เหมาะสมที่สุด เพราะ Stylometric feature เป็น feature ที่มีความซับซ้อนในการประเมินด้านภาษา ไม่ใช่เส้นตรง (Non-linear) ซึ่ง Model กลุ่ม Boosting เป็น Model ที่เก่งในด้านการสร้างเงื่อนไขซับซ้อน จากการที่ตัวมันอาศัยการ improve ตัวเองไปเรื่อยๆจาก data subset ตัวก่อนๆ
 
 
 # 3.	Propose new ideas based on your research.
