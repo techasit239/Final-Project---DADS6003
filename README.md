@@ -144,7 +144,27 @@ flowchart TD
 
 ---
 
-### 📋 Result
+# รายละเอียด Advanced features 8 ตัว ที่เพิ่มเข้ามา
+### 🛡️ 8 Advanced Features (New Ideas)
+
+ได้พัฒนาฟีเจอร์ใหม่ 8 ตัว เพื่อตรวจจับ "พฤติกรรม" และ "กลยุทธ์ทางจิตวิทยา" ของ Phishing Email โดยเฉพาะ
+
+| # | Feature Name | Description | Mechanism |
+| :-: | :--- | :--- | :--- |
+| 1 | **Imposter Domain Similarity** | ตรวจจับการปลอมแปลงโดเมน (Typosquatting) | วัดความคล้ายคลึงระหว่าง URL ในอีเมลกับโดเมนจริง (เช่น `g0ogle` vs `google`) |
+| 2 | **Macro Security Bypass** | ตรวจจับความพยายามฝัง Malware | นับคำสั่งหลอกให้เปิดระบบความปลอดภัย เช่น *"Enable Content"*, *"Enable Macros"* |
+| 3 | **Temporal Pressure Score** | วัดระดับการกดดันทางเวลา | คำนวณสัดส่วนคำเร่งรีบ เช่น *"Urgent"*, *"Immediately"*, *"24 hours"* |
+| 4 | **Action-Time Coercion** | วัดการบังคับให้กระทำทันที | ตรวจหา Pattern ของ **Action Verb** คู่กับ **Time Constraint** |
+| 5 | **Subject-Body Mismatch** | ตรวจจับความไม่สอดคล้องของเนื้อหา | วัดความเหมือน (Similarity) ระหว่าง Subject และ Body |
+| 6 | **Emotional Polarity Variance** | ตรวจจับความผิดปกติของอารมณ์ | วัดความแกว่งของ Sentiment (VADER) ในแต่ละประโยค |
+| 7 | **Conflicting Authority** | ตรวจจับการอ้างอำนาจที่น่าสงสัย | นับคำอ้างตำแหน่ง (Admin/Support) ที่มาพร้อมคำสั่งเสี่ยง (Download/Password) |
+| 8 | **Semantic Cohesion** | วัดความสมเหตุสมผลของภาษา | คำนวณสัดส่วนคำที่ไม่ซ้ำ (Unique Words Ratio) เพื่อจับ Bot-generated text |
+
+
+
+---
+
+# 📋 Result
 
 # Experiment : Reproduce Stylometric only
 
