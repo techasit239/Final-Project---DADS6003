@@ -58,13 +58,16 @@
 
 ผลลัพธ์ที่ได้จาก Unseen data (test dataset)
 
+
 **ตารางที่ ... Evaluation table from [original stylometric features]**
 
-<img width="800" height="600" alt="{D8F03CC6-E99E-4067-94AB-2C52CFED0E6C}" src="https://github.com/user-attachments/assets/41f81a80-ca43-4b8a-9e04-c1798c0a7d06" />
+<img width="800" height="600" alt="{B7B6F364-4347-4B20-816A-AB6DBA3F5D43}" src="https://github.com/user-attachments/assets/e94346a4-0453-4452-ad98-d00b21f3ca21" />
+
 
 **ตารางที่ ... Confusion matrix table from [original stylometric features]**
 
-<img width="384" height="412" alt="{52573E75-3F8A-4B87-B636-2280146CBEF2}" src="https://github.com/user-attachments/assets/d98696aa-7678-4d20-badb-46afdc09695b" />
+<img width="434" height="462" alt="{B8D76622-A7D7-4CF0-BB91-7DD29E4911DB}" src="https://github.com/user-attachments/assets/f4fd5eea-f551-474d-96b0-6229b642271b" />
+
 
    **สรุปผลลัพธ์**
    - จากการ reproduce โดยอาศัยการสร้าง feature จากเทคนิค stylometric ตามงานวิจัยอย่างเดียว พบว่าพวก Model ชนิด Gradient Boosting สมัยใหม่ทั้งหลาย เช่น XGBoost, LightGBM และ CatBoost ให้ประสิทธิภาพในการจับ Phishing email ได้ดีที่สุด โดยมีค่า Recall, Precision และ F1-score อยู่เท่ากันทั้ง 3 Models ที่ 77%, 91% และ 83% ตามลำดับ จึงสามารถตีความได้ว่า ถ้าเป็น feature แบบ stylometric เพียงอย่างเดียว เหล่า Model Boosting จะเป็น Model ที่เหมาะสมที่สุด เพราะ Stylometric feature เป็น feature ที่มีความซับซ้อนในการประเมินด้านภาษา ไม่ใช่เส้นตรง (Non-linear) ซึ่ง Model กลุ่ม Boosting เป็น Model ที่เก่งในด้านการสร้างเงื่อนไขซับซ้อน จากการที่ตัวมันอาศัยการ improve ตัวเองไปเรื่อยๆจาก data subset ตัวก่อนๆ
