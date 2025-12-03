@@ -55,7 +55,10 @@ stylistic feature (8.3%) คุณสมบัติโวหาร พิจา
 
 # 2.	Reproduce its results.
 
-ผลที่ได้
+สร้าง Stylometric Features ตามที่ระบุใน Paper ด้วยการคำนวณจริง (Real Calculation)
+ผลลัพธ์ที่ได้
+<img width="421" height="227" alt="{D8F03CC6-E99E-4067-94AB-2C52CFED0E6C}" src="https://github.com/user-attachments/assets/41f81a80-ca43-4b8a-9e04-c1798c0a7d06" />
+
 
 
 
