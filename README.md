@@ -181,6 +181,13 @@ _ตารางที่ 7 Confusion matrix ของ Reproduce จาก Test 
 
 _แผนภูมิที่ 1 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost_   
 
+   **สรุปผลลัพธ์**
+   - จากการ reproduce โดยอาศัยการสร้าง feature จากเทคนิค stylometric ตามงานวิจัยอย่างเดียว ในที่นี้เรื่องประสิทธิภาพในการตรวจจับ Phishing email ได้กล่าวไปแล้วนส่วนของพาร์ท Reproduce
+ดังนั้นจึงขอเน้นในส่วนของ Top 10 features ที่ส่งผลต่อ XGBoost ซึ่งเป็น Model ที่ดีที่สุดในการ Reproduce โดยพบว่า XGBoost ให้ความสำคัญสูงสุดกับ 3 สิ่งนี้ ซึ่งรวมกันมีผลถึง 44.5% ในการจับ Phishing Email
+1. char_freq_[ (16.5%) เป็นตัวบอกการสร้างภาพลักษณ์ที่น่าเชื่อถือ เพื่อสร้าง "หัวข้อทางการปลอมๆ" เพื่อให้เหยื่อตกใจหรือเชื่อถือ เช่น [URGENT], [Security Alert], หรือ [Bank Name] ซึ่งต่างจากอีเมลสนทนาทั่วไป
+2. char_freq_: (14.2%) เป็นตัวบอกการสร้าง "กับดักลิงก์" เนื่องจากมันคือองค์ประกอบหลักของ URL (http:, https:, mailto:) ยิ่งมี : เยอะ แปลว่าในอีเมลนั้นเต็มไปด้วยลิงก์เพื่อล่อลวงให้กด
+3. upper_ratio (13.8%) เป็นตัวบอกการสร้างตัวหนังสือตัวใหญ่เพื่อ "การกดดันแบบตะโกน" เนื่องจากแฮกเกอร์ชอบใช้ตัวใหญ่เพื่อ "ตะโกน" สร้างความตื่นตระหนกและเร่งรัด เช่น "VERIFY NOW", "ACCOUNT SUSPENDED" เพื่อให้เหยื่อรีบทำรายการโดยไม่ทันคิด
+
 
 # Experiment A : Stylometric + 8 Advanced Features
 
@@ -196,6 +203,7 @@ _ตารางที่ 9 Confusion matrix ของการทำ Reproduce 
 <img width="1073" height="451" alt="image" src="https://github.com/user-attachments/assets/7e6a9f9c-d316-40f6-ad25-f2f9e2fa7d02" />
 
 _แผนภูมิที่ 2 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost (รวม Advance Feature)_   
+
 
 
 
