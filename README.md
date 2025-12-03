@@ -158,11 +158,15 @@ flowchart TD
 
 # Experiment A : Stylometric + 8 Advanced Features
 
-<img width="800" height="600" alt="{74648B7A-48E8-4BC0-ABCB-A4B2E4C8C6C6}" src="https://github.com/user-attachments/assets/2c37d4a6-f03f-46f5-a678-872dd9028828" />
 
-<img width="374" height="386" alt="{F804FC69-172C-4B35-9C9B-0E43E38F5B6E}" src="https://github.com/user-attachments/assets/1125d90f-c875-4651-9e53-93cb3135e04c" />
+<img width="800" height="600" alt="{55C532B4-68F1-4A10-8D36-F89C40817CC8}" src="https://github.com/user-attachments/assets/2e5083b6-4477-4f88-90fb-94bca8512c21" />
 
-<img width="580" height="237" alt="{121AC9BB-95D9-4BD1-972D-4C4043C8C980}" src="https://github.com/user-attachments/assets/610bfaba-1f06-45ab-ac6a-c4ab736d15a7" />
+
+<img width="422" height="462" alt="{143567E3-F421-4CB5-9A92-C1244BB3AD04}" src="https://github.com/user-attachments/assets/b9eaf958-5bca-41ef-9d3f-c404cf7dd073" />
+
+
+<img width="1073" height="451" alt="image" src="https://github.com/user-attachments/assets/72c7d77d-09ee-421e-ab7b-e8cec3c8238a" />
+
 
 
 # Experiment B : TF-IDF only
