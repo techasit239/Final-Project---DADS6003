@@ -75,36 +75,38 @@
 # 3.	Propose new ideas based on your research.
 
 - Project นี้เป็นการพัฒนาระบบตรวจจับ Phishing Email โดยต่อยอดจากงานวิจัยเดิม ด้วยการเปรียบเทียบระหว่างเทคนิค Stylometric Analysis (แบบเดิม) กับ NLP + Advanced Features (แบบใหม่) ผ่านการทดลอง 4 รูปแบบ ดังนี้
+
+
+```mermaid
 flowchart TD
     subgraph Input ["📂 Data Preparation"]
-        Raw[Raw Emails (Train/Test)] --> Clean[Preprocessing]
+        Raw["Raw Emails (Train/Test)"] --> Clean["Preprocessing"];
     end
 
     subgraph Features ["⚙️ Feature Engineering"]
-        Clean --> Feat1[1. Stylometric<br/>(Paper Reproduce)]
-        Clean --> Feat2[2. Advanced<br/>(Behavioral)]
-        Clean --> Feat3[3. TF-IDF<br/>(NLP Content)]
+        Clean --> Feat1["1. Stylometric (Paper Reproduce)"];
+        Clean --> Feat2["2. Advanced (Behavioral)"];
+        Clean --> Feat3["3. TF-IDF (NLP Content)"];
     end
 
     subgraph Experiments ["🧪 Experiment Scenarios"]
-        Feat1 --> ExpR[Reproduce: Stylo Only]
-        Feat1 & Feat2 --> ExpA[Exp A: Stylo + Adv]
-        Feat3 --> ExpB[Exp B: NLP Only]
-        Feat1 & Feat2 & Feat3 --> ExpC[Exp C: All Combined]
+        Feat1 --> ExpR["Reproduce: Stylo Only"];
+        Feat1 & Feat2 --> ExpA["Exp A: Stylo + Adv"];
+        Feat3 --> ExpB["Exp B: NLP Only"];
+        Feat1 & Feat2 & Feat3 --> ExpC["Exp C: All Combined"];
     end
 
     subgraph Modeling ["🤖 AI Pipeline"]
-        ExpR & ExpA & ExpB & ExpC --> Tuning[Optuna Hyperparameter Tuning]
-        Tuning --> Train[Train 9 ML Models<br/>(Boosting, Linear, Trees)]
-        Train --> Valid[5-Fold Cross Validation]
+        ExpR & ExpA & ExpB & ExpC --> Tuning["Optuna Hyperparameter Tuning"];
+        Tuning --> Train["Train 9 ML Models (Boosting, Linear, Trees)"];
+        Train --> Valid["5-Fold Cross Validation"];
     end
 
     subgraph Result ["📊 Final Evaluation"]
-        Valid --> Test[Test on Unseen Data]
-        Test --> Metrics[F1-score Analysis]
-        Metrics --> Winner[🏆 Best Model Selection]
+        Valid --> Test["Test on Unseen Data"];
+        Test --> Metrics["F1-score Analysis"];
+        Metrics --> Winner["🏆 Best Model Selection"];
     end
 
     style Winner fill:#f9f,stroke:#333,stroke-width:4px
     style ExpB fill:#bbf,stroke:#333,stroke-width:2px
-  
