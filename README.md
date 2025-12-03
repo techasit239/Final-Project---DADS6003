@@ -76,7 +76,7 @@
 
 Project นี้เป็นการพัฒนาระบบตรวจจับ **Phishing Email** โดยมีเป้าหมายเพื่อต่อยอดจากงานวิจัยเดิม (Reproduce) และนำเสนอแนวทางใหม่ (New Ideas) เพื่อเพิ่มประสิทธิภาพความแม่นยำ โดยเปรียบเทียบระหว่างเทคนิค **Stylometric Analysis** (การวิเคราะห์สไตล์การเขียนแบบเดิม) กับการใช้ **NLP (TF-IDF)** และ **Advanced Features** (พฤติกรรมการหลอกลวง)
 
-เราได้ออกแบบการทดลอง (Experimental Design) ออกเป็น 4 รูปแบบ เพื่อวัดผลกระทบของ Feature แต่ละชุด ดังนี้:
+เราได้ออกแบบการทดลอง (Experimental Design) ออกเป็น 4 รูปแบบ เพื่อวัดผลกระทบของ Feature แต่ละชุด ดังนี้
 
 ### 🧪 Experimental Setup
 
@@ -131,3 +131,9 @@ flowchart TD
 ---
 
 ### 📋 Result
+
+<img width="800" height="600" alt="{05D4AD2D-A912-4724-A4E4-2A25CDDEC12F}" src="https://github.com/user-attachments/assets/3d1f0cf0-344e-4caa-beb8-76a22fae141e" />
+
+<img width="594" height="276" alt="{2240CD48-DC33-4DEC-9A4B-5BCF041A3159}" src="https://github.com/user-attachments/assets/62123edd-dbd3-4ed4-8983-5b7df021309f" />
+
+
