@@ -171,9 +171,15 @@ flowchart TD
 
 # Experiment B : TF-IDF only
 
-<img width="800" height="600" alt="{1AB13AA2-EB63-403D-AB6F-E9DA699E95E2}" src="https://github.com/user-attachments/assets/5f183a11-d02c-4c86-9d53-8c75ed467bdd" />
 
-<img width="374" height="386" alt="{38952657-B9AD-4183-B914-74224371A108}" src="https://github.com/user-attachments/assets/4fec280f-fa35-4196-b41b-33e1f43070ce" />
+<img width="800" height="600" alt="{9A4CECF7-F93E-4B75-9975-864C215BEE48}" src="https://github.com/user-attachments/assets/dc01e6fc-b419-4a0c-a7d2-d834c7a8a90b" />
+
+
+<img width="428" height="466" alt="{EC9463A2-68EB-4E4C-8C65-72580F291FCA}" src="https://github.com/user-attachments/assets/9be2e5f6-31e6-4a20-bd45-5e48211bb1c1" />
+
+
+<img width="946" height="451" alt="image" src="https://github.com/user-attachments/assets/6128e70b-9a79-42e9-9f71-d71d72c736ef" />
+
 
 
 # Experiment C : Hybrid >> [Stylometric + 8 Advanced Features] + [TF-IDF]
