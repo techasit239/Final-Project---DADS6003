@@ -157,8 +157,23 @@ flowchart TD
 <img width="374" height="386" alt="{38952657-B9AD-4183-B914-74224371A108}" src="https://github.com/user-attachments/assets/4fec280f-fa35-4196-b41b-33e1f43070ce" />
 
 
-# Experiment C : Stylometric + 8 Advanced Features + **TF-IDF
+# Experiment C : Hybrid >> [Stylometric + 8 Advanced Features] + [TF-IDF]
 
+<img width="800" height="600" alt="{E7B7E454-36C9-4F22-8A7B-454177D98CB3}" src="https://github.com/user-attachments/assets/56691362-871f-4b67-9fd4-bb8a7a28fe9e" />
+
+<img width="374" height="386" alt="{F256B857-45C3-48F7-8FC5-8BDB42F87A54}" src="https://github.com/user-attachments/assets/a44b37ab-2409-4a13-82e4-69db185ff2f6" />
+
+<img width="545" height="225" alt="{33A7F80A-317B-46C5-B86A-BE81A9F4E381}" src="https://github.com/user-attachments/assets/9c717ba1-e6a6-46c5-9d7d-95eff45ea431" />
+
+
+# Best Experiment & Best Model
+
+<img width="568" height="420" alt="{2792B258-9378-49B9-A123-0638046B6438}" src="https://github.com/user-attachments/assets/0a534117-5870-46af-8c36-d1eb1d85bc23" />
+
+
+# Check Best model overfitting
+
+<img width="666" height="424" alt="{EA90A41B-707C-4549-B820-49F2BE5B4AAE}" src="https://github.com/user-attachments/assets/bdf60ecb-92df-48ed-ad52-5cdc54728595" />
 
 
 
