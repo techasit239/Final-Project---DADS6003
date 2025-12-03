@@ -263,6 +263,11 @@ _แผนภูมิที่ 4 Top 10 feature ที่มีอิทธิ�
 <img width="855" height="547" alt="image" src="https://github.com/user-attachments/assets/d8570448-83d3-4fb6-a685-21f8fc3bae65" />
 
 
+   **สรุปผลลัพธ์**
+   - สรุปผลกราฟ Learning Curve ของ Best Model (SVM) จากการตรวจสอบกราฟ Learning Curve (Log Loss vs Training Size) ของโมเดล SVM ซึ่งเป็นโมเดลที่ดีที่สุดใน Experiment B (TF-IDF) พบลักษณะที่บ่งชี้ถึง Good fitting อย่างชัดเจน โดยเส้น Training Loss (สีแดง) เริ่มต้นที่จุดต่ำมาก (เกือบ 0) และค่อยๆ ขยับสูงขึ้นเล็กน้อยเมื่อเจอกับข้อมูลที่หลากหลายขึ้น ในขณะที่เส้น Validation Loss (สีน้ำเงิน) เริ่มต้นจากจุดที่สูงกว่า แต่มีแนวโน้มลดต่ำลงอย่างต่อเนื่องและวิ่งเข้าหาเส้น Training Loss จนช่องว่างระหว่างสองเส้น (Gap) แคบลงเรื่อยๆ เมื่อ Training Size เพิ่มขึ้น ลักษณะการลู่เข้าหากัน (Convergence) ที่ระดับ Loss ต่ำทั้งคู่แบบนี้ แสดงให้เห็นว่าโมเดลเรียนรู้ Pattern จากข้อมูลได้ดีโดยไม่เกิดอาการ Overfitting (จำข้อสอบ) หรือ Underfitting (เรียนรู้ไม่พอ) แม้จะมีข้อมูล Train เพียง 100 ตัวอย่าง แต่โมเดลก็สามารถสรุปกฎเกณฑ์เพื่อนำไปใช้กับข้อมูลใหม่ (Unseen Data) ได้อย่างมีประสิทธิภาพและน่าเชื่อถือ
+
+
+
 
 # Feature selection analysis on [best model from best experiment]
 
