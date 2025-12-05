@@ -205,9 +205,12 @@ flowchart TD
 
 # ⚖️ Features selection 
 
-<img width="954" height="66" alt="{7F031135-3396-4A4E-B455-F89D4B8DBDC1}" src="https://github.com/user-attachments/assets/42dfac77-00e6-4f1d-adbe-6cade2423618" />
+<img width="345" height="148" alt="{1B3799F4-8DA9-4AF2-B226-A3CC5F476399}" src="https://github.com/user-attachments/assets/df7345fd-11c9-474d-9e4b-a27d74938a04" />
 
 <img width="484" height="442" alt="image" src="https://github.com/user-attachments/assets/65ea2bfd-a9ca-4291-89ca-778b55d3c300" />
+
+<img width="285" height="80" alt="{7A003D1B-E0ED-4C1B-95AE-B887AA152DE2}" src="https://github.com/user-attachments/assets/a52d8cfa-4745-4ebc-9c70-e8fc997d893a" />
+
 
 ### ✂️ Feature Selection (Correlation Analysis)
 
