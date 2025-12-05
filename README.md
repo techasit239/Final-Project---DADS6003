@@ -90,8 +90,12 @@ Random Forest สามารถจับ **"ลายเซ็น" (Signature)*
 2.  **`first_person_pronoun_count` (7.5%)**: การใช้สรรพนามแทนตนเอง (I, We, My) เพื่อสร้างเรื่องราว (Storytelling)
 3.  **`ling_digit_count` (6.9%)**: การปรากฏของตัวเลขในเนื้อหา (เช่น จำนวนเงิน, รหัสอ้างอิง)
 
-**สรุป:** ผลลัพธ์นี้สะท้อนให้เห็นว่า แม้ในสภาวะเริ่มต้นที่ไม่มีการปรับแต่งค่า (Untuned) โมเดลตระกูล Ensemble Tree อย่าง Random Forest มีความเสถียรและสามารถตรวจจับความผิดปกติเชิงโครงสร้างภาษาเหล่านี้ได้ดีที่สุด 
+**สรุปและวิเคราะห์ผล:**
+สาเหตุที่ **Random Forest** ชนะในสถานการณ์นี้ เพราะลักษณะของ Stylometric Features (เช่น จำนวนคำ, ความถี่สัญลักษณ์) มีความสัมพันธ์แบบ **Non-linear** และมี **Noise** ปะปนอยู่มาก ซึ่ง Random Forest มีกลไกดังนี้
 
+[Image of Random Forest algorithm diagram]
+
+ **Bagging (Bootstrap Aggregating)** ที่ช่วยลดความแปรปรวน (Variance) และทนทานต่อ Noise ได้ดีกว่าโมเดลอื่นโดยไม่ต้องปรับจูน ในขณะที่ Logistic Regression (Linear) ไม่สามารถจับ Pattern ที่ซับซ้อนได้ และ XGBoost (Boosting) มักต้องการการจูน Hyperparameter ที่ละเอียดก่อนจึงจะแสดงประสิทธิภาพสูงสุด
 
 # 3. Propose new ideas based on your research
 
