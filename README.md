@@ -392,6 +392,7 @@ Random Forest แสดงความสามารถในการ "คั�
    * ใน Experiment B (TF-IDF ล้วน) ข้อมูลเป็น Text ที่กระจายตัว (Sparse) ซึ่งเข้าทาง **SVM** ที่สุด แต่ใน Experiment C เราได้นำข้อมูลสถิติ (Stylometric/Advanced) ที่เป็นตัวเลขทึบ (Dense) มาผสมกับ Text ทำให้ข้อมูลมีความ **ผสมผสาน (Mixed Data Types)** และมีความซับซ้อนสูงขึ้น และ การผสมฟีเจอร์หลายๆแบบในชุดข้อมูลขนาดเล็ก (Small Data) ทำให้เกิด Noise และความซับซ้อนที่ทำให้ SVM หรือ Linear Models เริ่ม Sensitive แต่ **Random Forest** มีจุดเด่นเรื่องการจัดการฟีเจอร์ที่หลากหลายและ**ตัด Noise ได้ดีผ่านการทำ Feature Subsampling และ Bagging** จึงสามารถคัดเลือกเฉพาะฟีเจอร์ที่ **เนื้อๆ เน้นๆ** จากทั้งฝั่ง Style และ Content มาใช้ร่วมกันได้ดีที่สุด แม้ประสิทธิภาพรวมจะลดลงจาก Exp B เล็กน้อย (96% -> 92%) เนื่องมาจากปัญหา Curse of Dimensionality (ฟีเจอร์เยอะเกินไปเมื่อเทียบกับจำนวนข้อมูล)
 
 
+
 # 🏆 Best Experiment & Best Model
 
 <img width="634" height="528" alt="{329DF658-3BF2-4864-94B5-D2C3BC9E4F20}" src="https://github.com/user-attachments/assets/4e9a47e2-4115-43b0-bec0-a870a19a8094" />
@@ -407,6 +408,7 @@ Random Forest แสดงความสามารถในการ "คั�
 
 
 
+
 # 📈 Check Best model overfitting
 
 <img width="691" height="470" alt="image" src="https://github.com/user-attachments/assets/96d1fb81-751a-4a52-8ce4-33cc93b0cc4b" />
@@ -415,6 +417,7 @@ Random Forest แสดงความสามารถในการ "คั�
    **สรุปผลลัพธ์**
    
    * จากการตรวจสอบกราฟ Learning Curve (Log Loss vs Training Size) ของโมเดล SVM ซึ่งเป็นผู้ชนะใน Experiment 2 (TF-IDF) พบลักษณะที่บ่งชี้ถึง **Good fitting** (การนำไปใช้จริงได้ดี) อย่างชัดเจน โดยเส้น Training Loss (สีแดง) มีค่าสูงเล็กน้อยในช่วงแรกของการเทรนแล้วจึงลดลงเมื่อจำนวนข้อมูลในการเทรนเพิ่มขึ้นตั้งแต่ ~25 samples ในขณะที่เส้น Validation Loss (สีน้ำเงิน) เริ่มต้นจากจุดที่สูงกว่ามากแต่ลดระดับลงอย่างรวดเร็วและวิ่งเข้าหาเส้น Training Loss จนช่องว่าง (Gap) แคบลงเรื่อยๆ ลักษณะการลู่เข้าหากัน (Convergence) ที่ระดับ Error ต่ำทั้งคู่เช่นนี้ ยืนยันว่าโมเดลไม่ได้เพียงแค่เก่งแต่จำข้อสอบ (Overfitting) แต่สามารถจับ Pattern ของ Keyword สำคัญได้จริง (Good fit) เมื่อต้องเจอกับข้อมูลที่ไม่เคยเห็นมาก่อน (Unseen Data)
+
 
 
 
