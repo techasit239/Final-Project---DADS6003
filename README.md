@@ -113,10 +113,10 @@ Random Forest สามารถจับ **"ลายเซ็น" (Signature)*
 | การทดลอง (Experiment) | รายละเอียด (Description) | Features ที่ใช้ | Models |
 | :--- | :--- | :--- | :--- |
 | **1. 🔁 Reproduce (Untuned)** | **Baseline:** จำลองตาม Paper 100% <br>*(ไม่จูน Hyperparameter, ไม่ตัด Feature)* | **Raw Stylometric** <br>*(~60 features)* | 4 Models <br>*(ตาม Paper)* |
-| **2. 🚀 Reproduce (Tuned)** | **Optimized:** ปรับปรุง Baseline <br>*(จูนด้วย Optuna + ตัด Feature ซ้ำซ้อน)* | **Filtered Stylometric** <br>*(ตัด High Correlation)* | 9 Models |
+| **2. 💡 Reproduce (Tuned)** | **Optimized:** ปรับปรุง Baseline <br>*(จูนด้วย Optuna + ตัด Feature ซ้ำซ้อน)* | **Filtered Stylometric** <br>*(ตัด High Correlation)* | 9 Models |
 | **3. 💡 Experiment A** | **Behavioral (New Idea):** <br>เพิ่มฟีเจอร์จับพฤติกรรม/เจตนาหลอกลวง | **Stylometric + 8 Advanced** | 9 Models |
-| **4. 📝 Experiment B** | **Content-based (New Idea):** <br>ใช้ NLP (TF-IDF) จับ Keywords สำคัญ | **TF-IDF Only** <br>*(Max 300 features)* | 9 Models |
-| **5. 🧬 Experiment C** | **Hybrid (New Idea):** <br>รวมทุกเทคนิคเข้าด้วยกัน | **Stylo + Advanced + TF-IDF** | 9 Models |
+| **4. 💡 Experiment B** | **Content-based (New Idea):** <br>ใช้ NLP (TF-IDF) จับ Keywords สำคัญ | **TF-IDF Only** <br>*(Max 300 features)* | 9 Models |
+| **5. 💡 Experiment C** | **Hybrid (New Idea):** <br>รวมทุกเทคนิคเข้าด้วยกัน | **Stylo + Advanced + TF-IDF** | 9 Models |
 
 ---
 
@@ -127,10 +127,10 @@ Random Forest สามารถจับ **"ลายเซ็น" (Signature)*
 | การทดลอง (Experiment) | Tuning Model | Feature Selection | Stylometric Features | Advanced Features | TF-IDF |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **1. 🔁 Reproduce (Untuned)** | | | ✅ | | |
-| **2. 🚀 Reproduce (Tuned)** | ✅ | ✅ | ✅ | | |
+| **2. 💡 Reproduce (Tuned)** | ✅ | ✅ | ✅ | | |
 | **3. 💡 Experiment A** | ✅ | ✅ | ✅ | ✅ | |
-| **4. 📝 Experiment B** | ✅ | ✅ | | | ✅ |
-| **5. 🧬 Experiment C** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **4. 💡 Experiment B** | ✅ | ✅ | | | ✅ |
+| **5. 💡 Experiment C** | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 > **คำอธิบายเพิ่มเติม:**
 > * **Tuning Model:** การใช้ `Optuna` เพื่อค้นหาค่า Hyperparameter ที่ดีที่สุด (20 Trials)
