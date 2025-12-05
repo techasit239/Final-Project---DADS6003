@@ -82,16 +82,17 @@ _ตารางที่ 5 Confusion matrix table from [original stylometric fe
 
 Project นี้เป็นการพัฒนาระบบตรวจจับ **Phishing Email** โดยมีเป้าหมายเพื่อต่อยอดจากงานวิจัยเดิม (Reproduce) และนำเสนอแนวทางใหม่ (New Ideas) เพื่อเพิ่มประสิทธิภาพความแม่นยำ โดยเปรียบเทียบระหว่างเทคนิค **Stylometric Analysis** (การวิเคราะห์สไตล์การเขียนแบบเดิม) กับการใช้ **NLP (TF-IDF)** และ **Advanced Features** (พฤติกรรมการหลอกลวง)
 
-เราได้ออกแบบการทดลอง (Experimental Design) ออกเป็น 4 รูปแบบ เพื่อวัดผลกระทบของ Feature แต่ละชุด ดังนี้
-
 ### 🧪 Experimental Setup
 
-| การทดลอง (Experiment) | รายละเอียด (Description) | Features ที่ใช้ |
-| :--- | :--- | :--- |
-| **🔁 Reproduce** | **Baseline:** จำลองผลลัพธ์ตาม Paper ต้นฉบับ | **Stylometric Only** <br>*(ไม่รวม 8 Advanced Features)* |
-| **💡 Experiment A** | **Behavioral:** เพิ่มฟีเจอร์จับพฤติกรรมคนโกง | **Stylometric + 8 Advanced Features** |
-| **💡 Experiment B** | **Content-based:** ใช้ NLP จับ Keywords สำคัญ | **TF-IDF Only** |
-| **💡 Experiment C** | **Hybrid:** รวมทุกเทคนิคเข้าด้วยกัน | **Stylometric + TF-IDF + Advanced** |
+ได้ออกแบบการทดลองออกเป็น 5 รูปแบบ เพื่อเปรียบเทียบประสิทธิภาพตั้งแต่การทำซ้ำงานวิจัยเดิม (Baseline) ไปจนถึงการปรับปรุงด้วยเทคนิคใหม่ๆ (New Ideas)
+
+| การทดลอง (Experiment) | รายละเอียด (Description) | Features ที่ใช้ | Models |
+| :--- | :--- | :--- | :--- |
+| **1. 🔁 Reproduce (Untuned)** | **Baseline:** จำลองตาม Paper 100% <br>*(ไม่จูน Hyperparameter, ไม่ตัด Feature)* | **Raw Stylometric** <br>*(~60 features)* | 4 Models <br>*(ตาม Paper)* |
+| **2. 🚀 Reproduce (Tuned)** | **Optimized Baseline:** ปรับปรุงจากข้อ 1 <br>*(จูนด้วย Optuna + ตัด Feature ซ้ำซ้อน)* | **Filtered Stylometric** <br>*(ตัด High Correlation)* | 9 Models |
+| **3. 💡 Experiment A** | **Behavioral (New Idea):** <br>เพิ่มฟีเจอร์จับพฤติกรรม/เจตนาหลอกลวง | **Stylometric + 8 Advanced** | 9 Models |
+| **4. 📝 Experiment B** | **Content-based (New Idea):** <br>ใช้ NLP (TF-IDF) จับ Keywords สำคัญ | **TF-IDF Only** <br>*(Max 300 features)* | 9 Models |
+| **5. 🧬 Experiment C** | **Hybrid (New Idea):** <br>รวมทุกเทคนิคเข้าด้วยกัน | **Stylometric + Advanced + TF-IDF** | 9 Models |
 
 ---
 
