@@ -68,7 +68,7 @@ _ตารางที่ 3 ประสิทธิภาพของแบบ�
 _ตารางที่ 4 Evaluation table from [original stylometric features]_
 
 
-<img width="543" height="398" alt="{4C727D87-92B5-475A-B3AD-7C5A8A0FD935}" src="https://github.com/user-attachments/assets/5b8d187a-5dfb-440a-b19f-d7e045994a6c" />
+<img width="326" height="239" alt="{4C727D87-92B5-475A-B3AD-7C5A8A0FD935}" src="https://github.com/user-attachments/assets/5b8d187a-5dfb-440a-b19f-d7e045994a6c" />
 
 _ตารางที่ 5 Confusion matrix table from [original stylometric features]_
 
