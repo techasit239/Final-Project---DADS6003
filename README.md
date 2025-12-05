@@ -356,25 +356,45 @@ SVM สามารถขีดเส้นแบ่ง (Hyperplane) ระห�
 # Experiment C : Hybrid >> [Stylometric + 8 Advanced Features] + [TF-IDF]
 
 
-<img width="800" height="600" alt="{02D2D0DB-F8B4-4CDF-8884-DCC82D07EECC}" src="https://github.com/user-attachments/assets/135483b0-643d-4cbd-8aee-6a8a4743a175" />
+<img width="800" height="600" alt="{E8055934-C81C-4840-9A7E-2AFA786C60B9}" src="https://github.com/user-attachments/assets/1cf2cd51-2a32-4ad2-807d-017941591c5a" />
 
 _ตารางที่ 12 ผลลัพธ์การ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF และ 8 Advance Feature_  
 
-<img width="523" height="580" alt="{5007D3A1-1D73-47D3-9880-6721343CE9F3}" src="https://github.com/user-attachments/assets/7ec056d7-a804-48f0-9324-87c460deeb76" />
+
+<img width="284" height="365" alt="{6150D481-7F67-4C24-BC15-B143676ED699}" src="https://github.com/user-attachments/assets/80147d96-5d2e-4aed-85a7-332264a0babd" />
 
 _ตารางที่ 13 Confusion matrix และเพิ่มตัวแปรจากวิธีการ TF-IDF และ 8 Advance Feature_  
 
-<img width="1065" height="451" alt="image" src="https://github.com/user-attachments/assets/552ec521-2bc2-4d1b-9d2b-2790f3c30c60" />
+
+<img width="994" height="590" alt="image" src="https://github.com/user-attachments/assets/19203b84-ab16-4cb1-bb91-7256bc6bab60" />
 
 _แผนภูมิที่ 4 Top 10 feature ที่มีอิทธิพลต่อ Model Random Forest (รวมตัวแปรจากการทำ TF-IDF และ 8 Advance Feature)_  
 
-   **สรุปผลลัพธ์**
-   - จากการทดลอง Experiment C ที่เป็นการรวมทุกอย่าง โดยเอา Feature จากทุกการทดสอบมาใช้ร่วมกัน (Stylometric + Advanced + TF-IDF) พบว่า Model ที่ประสิทธิภาพสูงสุดกลับเปลี่ยนเป็น Random Forest ซึ่งทำคะแนน F1-score ได้สูงสุดถึง 92.31% (ประสิทธิภาพชนะ SVM ที่เป็น Top Model รอบที่แล้ว) เนื่องจากในกรณีที่เอาข้อมูลหลายประเภทมาผสมกัน ทั้งแบบนับคำ (TF-IDF) แบบสถิติ (Stylometric) และแบบพฤติกรรม (Advanced) ข้อมูลจะมีความ "หลากหลายและซับซ้อน" สูงมาก ซึ่งเป็นสิ่งที่ Model ตระกูลต้นไม้ (Tree-based) อย่าง Random Forest ที่เก่งเรื่องการจัดการข้อมูลผสมๆ กันและมีความเสถียรสูง (Robust) ไม่ค่อยหวั่นไหวกับ Noise หรือฟีเจอร์ที่เยอะเกินไป ต่างจาก SVM หรือ Logistic Regression ที่เมื่อมี Feature หลากหลายประเภทรวมกันมาก กลับทำผลงานตกลงไปเหลือแค่ ~76-80% เพราะเริ่มเกิดความสับสนในการขีดเส้นแบ่ง และเมื่อดูลึกลงไปใน Feature ที่ Random Forest เลือกใช้ ก็พบว่ามีการผสมผสาน Feature กันอย่างลงตัวระหว่าง คำศัพท์ ('organization'), พฤติกรรมการบีบคั้น ('Action_Time_Coercion'), และสัญลักษณ์แปลกๆ (']') แสดงให้เห็นว่าการผสมผสาน Feature ช่วยให้ Model มองเห็นภาพรวมได้ดี แต่ต้องเลือก Model ที่ "จัดการความยุ่งเหยิง" ได้เก่งอย่าง Random Forest ถึงจะรีดประสิทธิภาพออกมาได้ดีที่สุด
+
+### 🧬 5. Experiment C (Hybrid Features)
+> **New Idea:** การทดสอบแบบ "รวมทุกอย่าง" โดยนำฟีเจอร์ทุกประเภทมารวมกัน (Stylometric + Advanced + TF-IDF) เพื่อดูว่าการใช้ข้อมูลทุกมิติจะช่วยให้โมเดลเก่งขึ้นหรือไม่
+
+จากการทดลองพบว่าโมเดล **Random Forest** กลับมาครองแชมป์อีกครั้ง โดยทำคะแนนได้สูงถึง **92.31%** ในทุกมิติ (Precision, Recall, F1) ซึ่งสูงกว่าการใช้ Stylometric เพียงอย่างเดียว แต่ยังเป็นรอง Experiment B (TF-IDF only) เล็กน้อย
+
+* 🏆 **Best Model:** Random Forest
+* 🎯 **F1-score:** **92.31%**
+* 🎯 **Recall:** **92.31%**
+* 🎯 **Precision:** **92.31%**
+
+#### 🔍 Key Insights & Feature Importance
+Random Forest แสดงความสามารถในการ "คัดเลือกสิ่งที่ดีที่สุด และ เสถียรที่สุด" จากทั้งสองรูปแบบของ Feature (Style + Content) โดย Top 3 Features มาจากคนละกลุ่มกันอย่างชัดเจน:
+
+1.  **`punctuation_frequency` (5.8%)**: *[Stylometric]* ความผิดปกติของการใช้เครื่องหมายวรรคตอน ยังคงเป็นFeatureที่ใช้จับได้มากที่สุด
+2.  **`organization` (5.7%)**: *[TF-IDF]* คำศัพท์ที่บ่งบอกถึงการแอบอ้างองค์กร
+3.  **`first_person_pronoun_count` (4.0%)**: *[Stylometric]* การใช้สรรพนามแทนตัวเองเพื่อสร้างเรื่องราว
+
+**สรุปและวิเคราะห์ผล:**
+   * ใน Experiment B (TF-IDF ล้วน) ข้อมูลเป็น Text ที่กระจายตัว (Sparse) ซึ่งเข้าทาง **SVM** ที่สุด แต่ใน Experiment C เราได้นำข้อมูลสถิติ (Stylometric/Advanced) ที่เป็นตัวเลขทึบ (Dense) มาผสมกับ Text ทำให้ข้อมูลมีความ **ผสมผสาน (Mixed Data Types)** และมีความซับซ้อนสูงขึ้น และ การผสมฟีเจอร์หลายๆแบบในชุดข้อมูลขนาดเล็ก (Small Data) ทำให้เกิด Noise และความซับซ้อนที่ทำให้ SVM หรือ Linear Models เริ่ม Sensitive แต่ **Random Forest** มีจุดเด่นเรื่องการจัดการฟีเจอร์ที่หลากหลายและ**ตัด Noise ได้ดีผ่านการทำ Feature Subsampling และ Bagging** จึงสามารถคัดเลือกเฉพาะฟีเจอร์ที่ **เนื้อๆ เน้นๆ** จากทั้งฝั่ง Style และ Content มาใช้ร่วมกันได้ดีที่สุด แม้ประสิทธิภาพรวมจะลดลงจาก Exp B เล็กน้อย (96% -> 92%) เนื่องมาจากปัญหา Curse of Dimensionality (ฟีเจอร์เยอะเกินไปเมื่อเทียบกับจำนวนข้อมูล)
 
 
 # Best Experiment & Best Model
 
-<img width="768" height="515" alt="{6AD1C3F6-D882-43AC-A623-0090DA53BE6D}" src="https://github.com/user-attachments/assets/5a3ec026-13ca-4293-a2fa-2b1c1dffb96c" />
+<img width="634" height="528" alt="{329DF658-3BF2-4864-94B5-D2C3BC9E4F20}" src="https://github.com/user-attachments/assets/4e9a47e2-4115-43b0-bec0-a870a19a8094" />
 
 
    **สรุปผลลัพธ์**
@@ -384,7 +404,7 @@ _แผนภูมิที่ 4 Top 10 feature ที่มีอิทธิ�
 
 # Check Best model overfitting
 
-<img width="855" height="547" alt="image" src="https://github.com/user-attachments/assets/d8570448-83d3-4fb6-a685-21f8fc3bae65" />
+<img width="691" height="470" alt="image" src="https://github.com/user-attachments/assets/96d1fb81-751a-4a52-8ce4-33cc93b0cc4b" />
 
 
    **สรุปผลลัพธ์**
@@ -395,7 +415,7 @@ _แผนภูมิที่ 4 Top 10 feature ที่มีอิทธิ�
 
 # Feature selection analysis on [best model from best experiment]
 
-<img width="1050" height="350" alt="{C9F95754-EC37-4004-88BE-16D0B46F997C}" src="https://github.com/user-attachments/assets/8058e539-3d1a-44bc-8e5f-e71992b0b681" />
+<img width="850" height="276" alt="{7FE8ADF3-E655-418E-8DAB-D757BEE1B2A0}" src="https://github.com/user-attachments/assets/d4bbfea6-7a83-4ed1-9252-9468268f3b05" />
 
 
    **สรุปผลลัพธ์**
