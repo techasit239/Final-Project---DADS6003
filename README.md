@@ -218,7 +218,9 @@ flowchart TD
 
 
 
-<img width="356" height="100" alt="{F0ACF7C7-7B92-4143-B8E9-6480C5878E46}" src="https://github.com/user-attachments/assets/cb870467-abe5-4717-9759-1ebed03bb5ad" />
+
+<img width="570" height="160" alt="{F0ACF7C7-7B92-4143-B8E9-6480C5878E46}" src="https://github.com/user-attachments/assets/cb870467-abe5-4717-9759-1ebed03bb5ad" />
+
 
 <img width="570" height="160" alt="{7A003D1B-E0ED-4C1B-95AE-B887AA152DE2}" src="https://github.com/user-attachments/assets/a52d8cfa-4745-4ebc-9c70-e8fc997d893a" />
 
