@@ -275,27 +275,47 @@ CatBoost ยังคงให้ความสำคัญกับ "ลาย
 
 **สรุปและวิเคราะห์ผล:**
 
-   * การที่ **CatBoost** (Gradient Boosting) สามารถแซงหน้า Random Forest (Bagging) ในรอบนี้ได้ แสดงให้เห็นถึงพลังของ **Hyperparameter Tuning** ที่ช่วยให้โมเดลเรียนรู้จากข้อผิดพลาดเดิมซ้ำๆ (Sequential Learning) จนสามารถเพิ่มประสิทธิภาพเฉลี่ยในการจับ พวก Phishing email ได้ดีขึ้น (F1-score) และกวาด (Recall) ได้มากขึ้นเป็น 88.00% และ 84.62% ตามลำดับ (จากเดิมที่ RamdomForrest F1 83.33% และ Recall 76.92%) ซึ่ง CatBoost มีจุดเด่นเรื่อง **Ordered Boosting** ที่ช่วยลดปัญหา Overfitting ได้ดีกว่าโมเดล Boosting อื่นๆ เมื่อได้รับการปรับจูนอย่างเหมาะสม จึงสามารถรีดประสิทธิภาพจาก Stylometric Features ได้สูงสุด
+   * การที่ **CatBoost** (Gradient Boosting) สามารถแซงหน้า Random Forest (Bagging) ในรอบนี้ได้ แสดงให้เห็นถึงพลังของ **Hyperparameter Tuning** ที่ช่วยให้โมเดลเรียนรู้จากข้อผิดพลาดเดิมซ้ำๆ (Sequential Learning) จนสามารถเพิ่มประสิทธิภาพเฉลี่ยในการจับ พวก Phishing email ได้ดีขึ้น (F1-score) และกวาด (Recall) ได้มากขึ้นเป็น **88.00%** และ **84.62%** ตามลำดับ (จากเดิมที่ RamdomForrest F1 83.33% และ Recall 76.92%) ซึ่ง CatBoost มีจุดเด่นเรื่อง **Ordered Boosting** ที่ช่วยลดปัญหา Overfitting ได้ดีกว่าโมเดล Boosting อื่นๆ เมื่อได้รับการปรับจูนอย่างเหมาะสม จึงสามารถรีดประสิทธิภาพจาก Stylometric Features ได้สูงสุด
 
 
 # Experiment A : Stylometric + 8 Advanced Features
 
 
-<img width="800" height="600" alt="{F4AF9952-1D80-4426-898E-A74154BF340F}" src="https://github.com/user-attachments/assets/399166ba-3733-4d06-8a75-97f78508a94a" />
+<img width="800" height="600" alt="{0ADFD18D-8229-4534-A2A6-F4E1D90FBBB9}" src="https://github.com/user-attachments/assets/2aa9f069-b055-4fea-9d79-95fa4999d585" />
 
-_ตารางที่ 8 ผลลัพธ์การ Reproduce และเพิ่ม 8 Advance Features_  
-
-<img width="530" height="573" alt="{AB50F651-0F6E-4DC7-A85E-96EEBE38AEA2}" src="https://github.com/user-attachments/assets/76bace5c-6a24-43cc-8279-c1a8a394a462" />
-
-_ตารางที่ 9 Confusion matrix ของการทำ Reproduce และเพิ่ม 8 Advance Features_  
-
-<img width="1073" height="451" alt="image" src="https://github.com/user-attachments/assets/7e6a   9f9c-d316-40f6-ad25-f2f9e2fa7d02" />
-
-_แผนภูมิที่ 2 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost (รวม Advance Feature)_   
+_ตารางที่ 8 ผลลัพธ์การ Reproduce และเพิ่ม 8 Advanced Features_  
 
 
-   **สรุปผลลัพธ์**
-   - จากการทดลอง Experiment A ที่ได้นำเสนอไอเดียใหม่โดยการเพิ่ม 8 Advanced Features เข้ากับ Stylometric Features เดิม พบว่าโมเดล XGBoost ยังคงเป็น Model ที่มีประสิทธิภาพสูงที่สุด และยังเพิ่มประสิทธิภาพสูงขึ้นอย่างชัดเจนจากการทดสอบเดิม โดยทำค่า F1-score ได้ถึง 88.00% (สูงกว่างาน Reproduce ที่ทำได้ 83.33%) พร้อมค่า Precision ที่สูงถึง 91.67% โดยจุดเปลี่ยนสำคัญ อยู่ที่การเพิ่มฟีเจอร์ด้านพฤติกรรม (Behavioral Features) เข้ามา โดยเฉพาะ Action_Time_Coercion_Density ที่กลายเป็น Feature ที่มีอิทธิพลสูงสุด (Feature Importance 15.9%) มากกว่า Feature เดิม จึงบ่งชี้ได้ว่า Model ยังสามารถเรียนรู้ "เจตนาการบีบคั้น" ของคนร้ายที่ต้องการให้เหยื่อรีบกระทำบางอย่างได้ และเมื่อทำงานร่วมกับสัญญาณการตะโกนกดดัน (upper_ratio) และการสร้างฟอร์มทางการปลอม (char_freq_[) ทำให้ Model ยกระดับจากการมองแค่เพียง "สไตล์การเขียน" มาเป็นการตรวจจับที่ "กลยุทธ์การหลอกลวง" (Deception Tactics) เพิ่มเติม ส่งผลให้สามารถคัดกรองอีเมล Phishing ได้อย่างแม่นยำและครอบคลุมยิ่งขึ้นกว่างานวิจัยเดิม
+<img width="312" height="405" alt="{8C9FA559-F76B-4E27-BB0B-3B8192B7DF83}" src="https://github.com/user-attachments/assets/72595496-52d5-4652-85ac-3ed2f9d5b92d" />
+
+_ตารางที่ 9 Confusion matrix ของการทำ Reproduce และเพิ่ม 8 Advanced Features_  
+
+
+<img width="994" height="590" alt="image" src="https://github.com/user-attachments/assets/9331f5fe-b6d1-46b0-b527-92cbd3771a46" />
+
+_แผนภูมิที่ 2 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost (รวม Advanced Features)_   
+
+
+### 💡 3. Experiment A (Behavioral Features)
+> **New Idea:** การทดสอบโดยนำ Stylometric Features เดิมมาผสมผสานกับ **8 Advanced Features** (พฤติกรรมการหลอกลวง) พร้อมทั้งทำการคัดเลือกฟีเจอร์ (Feature Selection) และปรับจูนโมเดล (Tuning)
+
+จากการทดลองพบว่าโมเดล **Random Forest** ให้ประสิทธิภาพสูงสุด โดยสามารถทำคะแนนได้ดีขึ้นกว่าแบบ Reproduce อย่างชัดเจน (F1-score ขยับขึ้นมาเป็น 88.00%) ซึ่งพิสูจน์ได้ว่าการเพิ่มฟีเจอร์ด้านพฤติกรรมช่วยให้โมเดลแยกแยะได้แม่นยำขึ้น
+
+* 🏆 **Best Model:** Random Forest
+* 🎯 **F1-score:** **88.00%**
+* 🎯 **Recall:** **84.62%**
+* 🎯 **Precision:** **91.67%**
+
+#### 🔍 Key Insights & Feature Importance
+Random Forest ได้เลือกใช้ฟีเจอร์ผสมผสานระหว่าง "สไตล์การเขียน" และ "เจตนาของคนร้าย" ในการจับผิด 3 อันดับแรก:
+
+1.  **`punctuation_frequency` (11.2%)**: ความถี่ของเครื่องหมายวรรคตอนที่ผิดปกติ ยังคงเป็นสัญญาณหลักในการคัดกรองเบื้องต้น
+2.  **`first_person_pronoun_count` (8.5%)**: การใช้สรรพนามแทนตัว (I, We) เพื่อสร้างความน่าเชื่อถือหรือแอบอ้างเป็นองค์กร
+3.  **`Action_Time_Coercion_Density` (7.4%)**: *[Advanced Feature]* ความหนาแน่นของคำสั่งที่บีบบังคับเรื่องเวลา (เช่น "Click Now", "24 Hours") ซึ่งเป็นฟีเจอร์ใหม่ที่ช่วยจับ "เจตนาเร่งรัด" ของคนร้ายได้สำเร็จ
+
+**สรุปและวิเคราะห์ผล:**
+   * จากผลถึงแม้ว่าค่า F1-score, Recall และ Precision (88.00%, 84.62% และ 91.67% ตามลำดับ) จะเท่ากับในการทดลองที่แล้วที่ไม่ได้ใส่ Advanced featured เข้าไป แต่ผู้ชนะกลับเปลี่ยนมือเป็น **Random Forest** (Bagging) แทนที่ **CatBoost** (Gradient Boosting) แต่ค่า AUC 96.45% มีค่าที่มากขึ้นจากการทดลองที่แล้ว (95.86%) รวมถึงตัว Advanced feature ที่เราใส่เข้าไป คือ **`Action_Time_Coercion_Density`** ขึ้นมาติดอันดับ Top 3 จึงทำให้สามารถสรุปได้ 2 อย่างคือการใส่ Advanced featured เข้าไปทำให้ไปช่วย**ลด False alarm (TPR) ลง** และ Advanced Feature ใหม่ที่ใส่เข้าไปทำให้การแยกทำได้ชัดเจนยิ่งขึ้น โดยไม่ต้องไปใช้โมเดลที่ซับซ้อนประเภท Boosting ก็สามารถแยกแยะ Phishing email ได้ประสิทธิภาพเท่าเดิม 
+
 
 
 # Experiment B : TF-IDF only
