@@ -241,7 +241,7 @@ CatBoost ยังคงให้ความสำคัญกับ "ลาย
 3.  **`ling_digit_count` (7.7%)**: การปรากฏของตัวเลขในเนื้อหา (เช่น จำนวนเงิน, วันที่, รหัส) เพื่อสร้างความสมจริง
 
 **สรุปและวิเคราะห์ผล:**
-การที่ **CatBoost** (Gradient Boosting) สามารถแซงหน้า Random Forest (Bagging) ในรอบนี้ได้ แสดงให้เห็นถึงพลังของ **Hyperparameter Tuning** ที่ช่วยให้โมเดลเรียนรู้จากข้อผิดพลาดเดิมซ้ำๆ (Sequential Learning) จนสร้างขอบเขตการตัดสินใจที่แม่นยำขึ้น โดยเฉพาะในข้อมูลที่มีความซับซ้อนและขนาดเล็ก (Small Data) ซึ่ง CatBoost มีจุดเด่นเรื่อง **Ordered Boosting** ที่ช่วยลดปัญหา Overfitting ได้ดีกว่าโมเดล Boosting อื่นๆ เมื่อได้รับการปรับจูนอย่างเหมาะสม จึงสามารถรีดประสิทธิภาพจาก Stylometric Features ได้สูงสุด
+การที่ **CatBoost** (Gradient Boosting) สามารถแซงหน้า Random Forest (Bagging) ในรอบนี้ได้ แสดงให้เห็นถึงพลังของ **Hyperparameter Tuning** ที่ช่วยให้โมเดลเรียนรู้จากข้อผิดพลาดเดิมซ้ำๆ (Sequential Learning) จนสามารถเพิ่มประสิทธิภาพเฉลี่ยในการจับ พวก Phishing email ได้ดีขึ้น (F1-score) และกวาด (Recall) ได้มากขึ้นเป็น 88.00% และ 84.62% ตามลำดับ (จากเดิมที่ RamdomForrest F1 83.33% และ Recall 76.92%) ซึ่ง CatBoost มีจุดเด่นเรื่อง **Ordered Boosting** ที่ช่วยลดปัญหา Overfitting ได้ดีกว่าโมเดล Boosting อื่นๆ เมื่อได้รับการปรับจูนอย่างเหมาะสม จึงสามารถรีดประสิทธิภาพจาก Stylometric Features ได้สูงสุด
 
 
 # Experiment A : Stylometric + 8 Advanced Features
