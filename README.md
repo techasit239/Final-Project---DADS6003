@@ -116,6 +116,26 @@ Random Forest สามารถจับ **"ลายเซ็น" (Signature)*
 | **3. 💡 Experiment B** | **Content-based (New Idea):** <br>ใช้ NLP (TF-IDF) จับ Keywords สำคัญ | **TF-IDF Only** <br>*(Max 300 features)* | 9 Models |
 | **4. 💡 Experiment C** | **Hybrid (New Idea):** <br>รวมทุกเทคนิคเข้าด้วยกัน | **Stylometric + Advanced + TF-IDF** | 9 Models |
 
+
+### 🧪 Experimental Setup
+
+ตารางเปรียบเทียบการออกแบบการทดลองทั้ง 5 รูปแบบ เพื่อแสดงความแตกต่างของเทคนิคที่ใช้ในแต่ละ Experiment
+
+| การทดลอง (Experiment) | รายละเอียด (Description) | Tuning Model | Feature Selection | Stylometric Features | Advanced Features | TF-IDF | Models |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1. 🔁 Reproduce (Untuned)** | **Baseline:** จำลองตาม Paper 100% (Raw Data) | | | ✅ | | | 4 |
+| **2. 🚀 Reproduce (Tuned)** | **Optimized:** ปรับปรุง Baseline ด้วยการจูนและคัดกรอง | ✅ | ✅ | ✅ | | | 9 |
+| **3. 💡 Experiment A** | **Behavioral:** เพิ่มฟีเจอร์จับพฤติกรรม/เจตนา | ✅ | ✅ | ✅ | ✅ | | 9 |
+| **4. 📝 Experiment B** | **Content-based:** ใช้ NLP (TF-IDF) จับ Keywords | ✅ | ✅ | | | ✅ | 9 |
+| **5. 🧬 Experiment C** | **Hybrid:** รวมทุกเทคนิค (Style + Behv + Content) | ✅ | ✅ | ✅ | ✅ | ✅ | 9 |
+
+> **หมายเหตุ:**
+> * **Tuning Model:** การใช้ Optuna เพื่อหาค่า Hyperparameter ที่ดีที่สุด
+> * **Feature Selection:** การตัดฟีเจอร์ที่ซ้ำซ้อน (Correlation > 0.95) หรือการคัดเลือกคำศัพท์สำคัญ (Max Features)
+> * **Models:** จำนวนโมเดลที่ใช้ทดสอบ (4 Models = ตาม Paper, 9 Models = เพิ่มโมเดลใหม่ๆ เข้าไป)
+
+
+
 ---
 
 ### 🛠️ Project Workflow
