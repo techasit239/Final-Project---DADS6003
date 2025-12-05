@@ -152,7 +152,7 @@ flowchart TD
         FeatStyloFiltered & FeatAdvFiltered & FeatTFIDF --> ExpC["5. Exp C: Combined All<br/>(Hybrid Idea)"];
     end
 
-    subgraph Modeling ["🤖 AI Pipeline"]
+    subgraph Modeling ["🏋️‍♂️ Training & Tuning Model"]
         ExpR_Untuned --> TrainDefault["Train Default Models"];
         
         ExpR_Tuned & ExpA & ExpB & ExpC --> Tuning["Optuna Hyperparameter Tuning"];
