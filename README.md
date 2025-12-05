@@ -299,7 +299,7 @@ _แผนภูมิที่ 2 Top 10 feature ที่มีอิทธิ�
 ### 💡 3. Experiment A (Behavioral Features)
 > **New Idea:** การทดสอบโดยนำ Stylometric Features เดิมมาผสมผสานกับ **8 Advanced Features** (พฤติกรรมการหลอกลวง) พร้อมทั้งทำการคัดเลือกฟีเจอร์ (Feature Selection) และปรับจูนโมเดล (Tuning)
 
-จากการทดลองพบว่าโมเดล **Random Forest** ให้ประสิทธิภาพสูงสุด โดยสามารถทำคะแนนได้ดีขึ้นกว่าแบบ Reproduce อย่างชัดเจน (F1-score ขยับขึ้นมาเป็น 88.00%) ซึ่งพิสูจน์ได้ว่าการเพิ่มฟีเจอร์ด้านพฤติกรรมช่วยให้โมเดลแยกแยะได้แม่นยำขึ้น
+จากการทดลองพบว่าโมเดล **Random Forest** ให้ประสิทธิภาพสูงสุด โดยสามารถทำคะแนนได้เท่ากับแบบ Reproduce tuned (แต่ AUC สูงขึ้นเล็กน้อย) ดังนั้นการเพิ่มฟีเจอร์ด้านพฤติกรรมช่วยให้โมเดลเกิด False alarm ลดลง
 
 * 🏆 **Best Model:** Random Forest
 * 🎯 **F1-score:** **88.00%**
@@ -321,15 +321,15 @@ Random Forest ได้เลือกใช้ฟีเจอร์ผสมผ
 # Experiment B : TF-IDF only
 
 
-<img width="800" height="600" alt="{3DF8F4E0-48D5-4D52-96BB-E4557BE2CF4E}" src="https://github.com/user-attachments/assets/edecec60-e1fb-4144-b36a-21722c698beb" />
+<img width="800" height="600" alt="{20DDDA85-3491-47A8-BA81-3E69786B0FE0}" src="https://github.com/user-attachments/assets/af79664c-eeea-48bd-9e43-b95ec5d1ebf2" />
 
 _ตารางที่ 10 ผลลัพธ์การ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF_   
 
-<img width="535" height="588" alt="{5EE6A487-495A-41F3-85BA-BB2F5AE27218}" src="https://github.com/user-attachments/assets/5ef7a515-2ae3-4f85-b9dd-d2602858b20b" />
+<img width="249" height="333" alt="{86F3E982-7422-4A87-9AA3-73BB1915FA2E}" src="https://github.com/user-attachments/assets/c03e279e-bfeb-4350-b501-f8a4b20ca235" />
 
 _ตารางที่ 11 Confusion matrix ของการทำ Reproduce และเพิ่มตัวแปรจากวิธีการ TF-IDF_  
 
-<img width="946" height="451" alt="image" src="https://github.com/user-attachments/assets/c4245e93-5a53-48e0-8b50-7dcb3e64f606" />
+<img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/7e9a24b9-d6bf-4a6e-8785-c434fb3341be" />
 
 _แผนภูมิที่ 3 Top 10 feature ที่มีอิทธิพลต่อ Model SVM (รวมตัวแปรจากการทำ TF-IDF)_  
 
