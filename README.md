@@ -80,6 +80,7 @@ _ตารางที่ 5 Confusion matrix table from [original stylometric fe
 
 * 🏆 **Best Model:** Random Forest
 * 🎯 **F1-score:** **83.33%**
+* 🎯 **Recall:** **76.92%**
 * 🎯 **Precision:** **90.91%**
 
 #### 🔍 Key Insights & Feature Importance
