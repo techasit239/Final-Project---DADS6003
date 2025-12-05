@@ -207,25 +207,41 @@ flowchart TD
 # Experiment : Reproduce Stylometric only
 
 
-<img width="800" height="600" alt="{4F32B022-F510-4F26-8FC6-75B7C32402B1}" src="https://github.com/user-attachments/assets/416fdd27-5ad3-4910-bd8e-ee38c3e189a9" />
+<img width="800" height="600" alt="{2A5A1EBF-5936-4CB1-BF35-87E62DA76855}" src="https://github.com/user-attachments/assets/b42daca3-f9ac-47c2-90a3-51e9614ee01e" />
 
 _ตารางที่ 6 ผลลัพธ์การ Reproduce จาก Test data_  
 
-<img width="535" height="590" alt="{AA13E833-CE31-444B-A04D-B9D289332014}" src="https://github.com/user-attachments/assets/e9342708-c28e-49d8-bd83-244889512521" />
+
+<img width="315" height="408" alt="{9016A039-598E-46C2-AE65-099E5D4152AC}" src="https://github.com/user-attachments/assets/e4b5adeb-d13d-4de9-89a0-0b39daf62cdc" />
 
 _ตารางที่ 7 Confusion matrix ของ Reproduce จาก Test data_  
 
-<img width="1002" height="451" alt="image" src="https://github.com/user-attachments/assets/ec176138-cfc4-449d-8f37-0613a457cca3" />
+
+<img width="994" height="590" alt="image" src="https://github.com/user-attachments/assets/1c205f50-f326-43ef-91ef-fd15bd28559f" />
 
 _แผนภูมิที่ 1 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost_   
 
-   **สรุปผลลัพธ์**
-   - จากการ reproduce โดยอาศัยการสร้าง feature จากเทคนิค stylometric ตามงานวิจัยอย่างเดียว ในที่นี้เรื่องประสิทธิภาพในการตรวจจับ Phishing email ได้กล่าวไปแล้วนส่วนของพาร์ท Reproduce จึงขอเน้นในส่วนของ Top 10 features ที่ส่งผลต่อ XGBoost ซึ่งเป็น Model ที่ดีที่สุดในการ Reproduce โดยพบว่า XGBoost ให้ความสำคัญสูงสุดกับ 3 สิ่งนี้ ซึ่งรวมกันมีผลถึง 44.5% ในการจับ Phishing Email
-   **1. char_freq_[ (16.5%)** เป็นตัวบอกการสร้างภาพลักษณ์ที่น่าเชื่อถือ เพื่อสร้าง "หัวข้อทางการปลอมๆ" เพื่อให้เหยื่อตกใจหรือเชื่อถือ เช่น [URGENT], [Security Alert], หรือ [Bank Name] ซึ่งต่างจากอีเมลสนทนาทั่วไป  
-   **2. char_freq_: (14.2%)** เป็นตัวบอกการสร้าง "กับดักลิงก์" เนื่องจากมันคือองค์ประกอบหลักของ URL (http:, https:, mailto:) ยิ่งมี : เยอะ แปลว่าในอีเมลนั้นเต็มไปด้วยลิงก์เพื่อล่อลวงให้กด  
-   **3. upper_ratio (13.8%)** เป็นตัวบอกการสร้างตัวหนังสือตัวใหญ่เพื่อ "การกดดันแบบตะโกน" เนื่องจากแฮกเกอร์ชอบใช้ตัวใหญ่เพื่อ "ตะโกน" สร้างความตื่นตระหนกและเร่งรัด เช่น "VERIFY NOW", "ACCOUNT SUSPENDED" เพื่อให้เหยื่อรีบทำรายการโดยไม่ทันคิด  
 
-   ดังนั้นจึงสรุปได้ว่าการใช้ Stylometric จาก research paper ส่วนใหญ่ XGBoost ทีเป็น Model ที่จับได้ดีที่สุด กว่าครึ่งหนึ่งModelสามารถจับ Phishing ได้จากการมองหา "ฟอร์มแจ้งเตือนปลอม ([) ที่อัดแน่นด้วยลิงก์ (:) และเน้นข้อความข่มขู่ (UPPER)
+   **สรุปผลลัพธ์**
+### 📊 1. Reproduce Results (Tuned)
+> **Optimized Baseline:** การทดสอบโดยใช้ Stylometric Features เดิม (ตาม Paper) แต่พัฒนาด้วยการคัดกรองฟีเจอร์ที่ซ้ำซ้อน (Feature Selection) และปรับจูน Hyperparameter ด้วย Optuna
+
+จากการทดลองพบว่าโมเดล **CatBoost** พลิกกลับมาเป็นผู้ชนะด้วยประสิทธิภาพที่สูงขึ้นอย่างชัดเจน (F1-score เพิ่มจาก 83.33% เป็น **88.00%**) แซงหน้า Random Forest ที่เป็นแชมป์ในรอบ Untuned
+
+* 🏆 **Best Model:** CatBoost
+* 🎯 **F1-score:** **88.00%**
+* 🎯 **Recall:** **84.62%**
+* 🎯 **Precision:** **91.67%**
+
+#### 🔍 Key Insights & Feature Importance
+CatBoost ยังคงให้ความสำคัญกับ "ลายเซ็น" เดิมของ Phishing แต่สามารถเรียนรู้น้ำหนักความสำคัญได้ละเอียดขึ้น:
+
+1.  **`punctuation_frequency` (13.8%)**: การใช้เครื่องหมายวรรคตอนที่มากผิดปกติยังคงเป็นสัญญาณที่ชัดเจนที่สุด
+2.  **`first_person_pronoun_count` (11.5%)**: การเล่าเรื่องด้วยสรรพนามบุรุษที่ 1 (I, We) เพื่อสร้างความน่าเชื่อถือหรือความเห็นอกเห็นใจ
+3.  **`ling_digit_count` (7.7%)**: การปรากฏของตัวเลขในเนื้อหา (เช่น จำนวนเงิน, วันที่, รหัส) เพื่อสร้างความสมจริง
+
+**สรุปและวิเคราะห์ผล:**
+การที่ **CatBoost** (Gradient Boosting) สามารถแซงหน้า Random Forest (Bagging) ในรอบนี้ได้ แสดงให้เห็นถึงพลังของ **Hyperparameter Tuning** ที่ช่วยให้โมเดลเรียนรู้จากข้อผิดพลาดเดิมซ้ำๆ (Sequential Learning) จนสร้างขอบเขตการตัดสินใจที่แม่นยำขึ้น โดยเฉพาะในข้อมูลที่มีความซับซ้อนและขนาดเล็ก (Small Data) ซึ่ง CatBoost มีจุดเด่นเรื่อง **Ordered Boosting** ที่ช่วยลดปัญหา Overfitting ได้ดีกว่าโมเดล Boosting อื่นๆ เมื่อได้รับการปรับจูนอย่างเหมาะสม จึงสามารถรีดประสิทธิภาพจาก Stylometric Features ได้สูงสุด
 
 
 # Experiment A : Stylometric + 8 Advanced Features
