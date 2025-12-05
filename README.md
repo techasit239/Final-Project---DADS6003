@@ -407,7 +407,7 @@ Random Forest แสดงความสามารถในการ "คั�
 
 
 
-# Check Best model overfitting
+# 📈 Check Best model overfitting
 
 <img width="691" height="470" alt="image" src="https://github.com/user-attachments/assets/96d1fb81-751a-4a52-8ce4-33cc93b0cc4b" />
 
@@ -418,7 +418,7 @@ Random Forest แสดงความสามารถในการ "คั�
 
 
 
-# Feature selection analysis on [best model from best experiment]
+# 🫗 Feature selection analysis on [best model from best experiment]
 
 <img width="850" height="276" alt="{7FE8ADF3-E655-418E-8DAB-D757BEE1B2A0}" src="https://github.com/user-attachments/assets/d4bbfea6-7a83-4ed1-9252-9468268f3b05" />
 
