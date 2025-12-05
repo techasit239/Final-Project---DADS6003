@@ -106,40 +106,55 @@ flowchart TD
     end
 
     subgraph Features ["⚙️ Feature Engineering"]
-        Clean --> Feat1["1. Stylometric (Paper Reproduce)"];
-        Clean --> Feat2["2. Advanced (Behavioral)"];
-        Clean --> Feat3["3. TF-IDF (NLP Content)"];
+        Clean --> FeatRaw["1. Stylometric (Raw)"];
+        Clean --> FeatAdv["2. Advanced (Behavioral)"];
+        Clean --> FeatTFIDF["3. TF-IDF (Content)"];
+        
+        FeatRaw --> SelectCorr["✂️ Correlation Filtering<br/>(Remove highly correlated features)"];
+        SelectCorr --> FeatStyloFiltered["Stylometric (Filtered)"];
+        FeatAdv --> FeatAdvFiltered["Advanced (Filtered)"];
     end
 
     subgraph Experiments ["🧪 Experiment Scenarios"]
-        Feat1 --> ExpR["Reproduce: Stylo Only"];
-        Feat1 & Feat2 --> ExpA["Exp A: Stylo + Adv"];
-        Feat3 --> ExpB["Exp B: NLP Only"];
-        Feat1 & Feat2 & Feat3 --> ExpC["Exp C: All Combined"];
+        %% Reproduce (Untuned)
+        FeatRaw --> ExpR_Untuned["1. Reproduce (Untuned)<br/>4 Paper Models | No Tuning | Raw Feats"];
+        
+        %% New Ideas (Tuned)
+        FeatStyloFiltered --> ExpR_Tuned["2. Reproduce (Tuned)<br/>9 Models | Tuned | Filtered Feats"];
+        
+        FeatStyloFiltered & FeatAdvFiltered --> ExpA["3. Exp A: Stylo + Adv<br/>(Behavioral Idea)"];
+        
+        FeatTFIDF --> ExpB["4. Exp B: TF-IDF Only<br/>(Content Idea)"];
+        
+        FeatStyloFiltered & FeatAdvFiltered & FeatTFIDF --> ExpC["5. Exp C: Combined All<br/>(Hybrid Idea)"];
     end
 
     subgraph Modeling ["🤖 AI Pipeline"]
-        ExpR & ExpA & ExpB & ExpC --> Tuning["Optuna Hyperparameter Tuning"];
-        Tuning --> Train["Train 9 ML Models (Boosting, Linear, Trees)"];
-        Train --> Valid["5-Fold Cross Validation"];
+        ExpR_Untuned --> TrainDefault["Train Default Models"];
+        
+        ExpR_Tuned & ExpA & ExpB & ExpC --> Tuning["Optuna Hyperparameter Tuning"];
+        Tuning --> TrainTuned["Train Optimized Models"];
+        
+        TrainDefault & TrainTuned --> Valid["Stratified 5-Fold CV"];
     end
 
     subgraph Result ["📊 Final Evaluation"]
         Valid --> Test["Test on Unseen Data"];
         Test --> Metrics["F1-score Analysis"];
-        Metrics --> Winner["🏆 Best Model Selection"];
+        Metrics --> Winner["🏆 Global Best Model Selection"];
     end
 
-    subgraph Optimization ["🔍 Feature Selection (Best Model)"]
-        Winner --> Importance["Analyze Feature Importance"];
-        Importance --> TopK["Select Top-K Features (10, 20, 30)"];
-        TopK --> Retrain["Retrain & Re-evaluate"];
-        Retrain --> Final["🏁 Final Optimization Result"];
+    subgraph Optimization ["🔍 Post-Training Analysis"]
+        Winner --> Overfit["Check Overfitting (Cost Function)"];
+        Winner --> Importance["Feature Importance Analysis"];
+        Importance --> TopK["Select Top-K (10, 20, 30)"];
+        TopK --> Final["🏁 Final Optimization Result"];
     end
 
     style Winner fill:#f9f,stroke:#333,stroke-width:4px
     style ExpB fill:#bbf,stroke:#333,stroke-width:2px
-    style Final fill:#d4edda,stroke:#155724,stroke-width:2px,stroke-dasharray: 5 5
+    style SelectCorr fill:#ffcccc,stroke:#d9534f,stroke-width:1px,stroke-dasharray: 5 5
+    style Final fill:#d4edda,stroke:#155724,stroke-width:2px
    ```
 
 ---
