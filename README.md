@@ -73,6 +73,11 @@ _ตารางที่ 4 Evaluation table from [original stylometric features
 _ตารางที่ 5 Confusion matrix table from [original stylometric features]_
 
 
+<img width="994" height="590" alt="image" src="https://github.com/user-attachments/assets/f15c60e2-c99f-42e5-9e9b-95b014be8195" />
+
+_แผนภูมิที่ 1 Top 10 feature ที่มีอิทธิพลต่อ Model RandomForrest_   
+
+
 ### 📊 1. Reproduce Results (Untuned)
 > **Baseline Experiment:** การทดสอบโดยใช้ Stylometric Features แบบดั้งเดิม (ตาม Paper) และใช้ค่า Default Parameters (No Tuning)
 
