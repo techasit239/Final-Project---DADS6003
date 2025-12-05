@@ -209,6 +209,26 @@ flowchart TD
 
 <img width="484" height="442" alt="image" src="https://github.com/user-attachments/assets/65ea2bfd-a9ca-4291-89ca-778b55d3c300" />
 
+### ✂️ Feature Selection (Correlation Analysis)
+
+เพื่อลดความซ้ำซ้อนของข้อมูล (Multicollinearity) และเพิ่มประสิทธิภาพของโมเดล เราได้ทำการวิเคราะห์ Correlation และตัด Features ที่มีความสัมพันธ์กันสูงเกิน 95% ออกจำนวน 12 ตัว ดังนี้:
+
+```
+Dropped Features (High Correlation > 0.95):
+-------------------------------------------
+1.  uppercase_word_ratio_2        # ซ้ำซ้อนกับ upper_ratio
+2.  gunning_fog_index             # ซ้ำซ้อนกับ readability scores อื่นๆ
+3.  bigram_unique_count           # สัมพันธ์กับ word_count สูง
+4.  trigram_total_count           # สัมพันธ์กับ word_count สูง
+5.  trigram_unique_count          # สัมพันธ์กับ word_count สูง
+6.  personalisation_markers_count # ซ้ำซ้อนกับ pronoun counts
+7.  ling_word_count               # ซ้ำซ้อนกับ word_count หลัก
+8.  ling_unique_word_count        # ซ้ำซ้อนกับ vocab_size
+9.  ling_email_count              # ซ้ำซ้อนกับ num_emails
+10. ling_upper_ratio              # ซ้ำซ้อนกับ upper_ratio
+11. ling_space_count              # ซ้ำซ้อนกับ space_count
+12. ling_alpha_count              # ซ้ำซ้อนกับ char_count
+```
 
 
 
