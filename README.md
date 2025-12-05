@@ -63,24 +63,38 @@ _ตารางที่ 3 ประสิทธิภาพของแบบ�
 
 
 
-<img width="800" height="600" alt="{4F32B022-F510-4F26-8FC6-75B7C32402B1}" src="https://github.com/user-attachments/assets/416fdd27-5ad3-4910-bd8e-ee38c3e189a9" />
+<img width="800" height="600" alt="{EB646097-0F2B-4CE1-BA2F-08D23EE2135E}" src="https://github.com/user-attachments/assets/b9ded863-3d62-4375-a1f8-a3cf92dea027" />
 
 _ตารางที่ 4 Evaluation table from [original stylometric features]_
 
-<img width="535" height="590" alt="{AA13E833-CE31-444B-A04D-B9D289332014}" src="https://github.com/user-attachments/assets/e9342708-c28e-49d8-bd83-244889512521" />
+
+<img width="543" height="398" alt="{4C727D87-92B5-475A-B3AD-7C5A8A0FD935}" src="https://github.com/user-attachments/assets/5b8d187a-5dfb-440a-b19f-d7e045994a6c" />
 
 _ตารางที่ 5 Confusion matrix table from [original stylometric features]_
 
 
-   **สรุปผลลัพธ์**
-   - จากการ reproduce โดยอาศัยการสร้าง feature จากเทคนิค stylometric ตามงานวิจัย พบว่า Model ประเภท Gradient Boosting สมัยใหม่ ได้แก่ XGBoost, LightGBM และ CatBoost ให้ประสิทธิภาพในการจับ Phishing email ได้ดีที่สุด โดยมีค่า Recall, Precision และ F1-score เท่ากันทั้ง 3 Models ที่ 77%, 91% และ 83% ตามลำดับ จึงสามารถสรุปได้ว่า ถ้าเป็น feature แบบ stylometric เพียงอย่างเดียว เหล่า Model Boosting จะเป็น Model ที่เหมาะสมที่สุด เพราะ Stylometric feature เป็น feature ที่มีความซับซ้อนในการประเมินด้านภาษา ไม่ใช่เส้นตรง (Non-linear) ซึ่ง Model กลุ่ม Boosting เป็น Model ที่เก่งในด้านการสร้างเงื่อนไขซับซ้อน จากการที่ตัว Model อาศัยการ improve ตัวเองไปเรื่อยๆจาก data subset ตัวก่อนๆ
-   - ในทางกลับกัน Model ตัวพื้นฐานที่เป็นเส้นตรง (Linear) เช่น Linear Regression, SVM เมื่อใช้ stylometric feature ในการ train model กลับมีประสิทธิภาพแค่ระดับกลางๆที่ F1~80% ซึ่งน้อยกว่า Model ประเภท Boosting อย่างเห็นได้ชัด เนื่องจาก Stylometric feature ไม่ได้แปรผันตรงไปตรงมา เหมือนพวก TF-IDF เสมอไป เช่น ประโยค/คำศัพท์ ยิ่งยาวยิ่งค่าสูง บาง feature จำเป็นต้องอาศัยความรู้ด้านภาษาศาสตร์เชิงลึกเข้ามาวิเคราะห์เพื่อให้คะแนน ทำให้ Model เชิงเส้นตรงตีความได้ยาก
-   - ในส่วน Naive Bayes (Non-iterative model) ให้ผลลัพธ์ที่ค่อนข้าง Conservative เนื่องจากได้ Precision สูงมากที่ 83% แต่ในทางกลับกันกลับได้ Recall แค่ 38% เท่านั้น ส่งผลให้ F1-score ร่วงไปอยู่อันดับท้ายสุด จึงตีความได้ว่า Model แทบจะจับ หรือ กวาดพวก Phishing email ไม่ได้เลย แต่ถ้าจับได้คือส่วนใหญ่จะใช่ (มีความแม่นยำ แต่กวาดได้น้อย) แต่ในงานนี้ Recall แทบจะเป็นตัวที่มีความสำคัญที่สุด เนื่องจากต้องปล่อยให้ Phishing email หลุดไปน้อยที่สุด จึงสรุปได้ว่าไม่ควรใช้ Naive Bayes ในการ train ด้วย Stylometric feature  
+### 📊 1. Reproduce Results (Untuned)
+> **Baseline Experiment:** การทดสอบโดยใช้ Stylometric Features แบบดั้งเดิม (ตาม Paper) และใช้ค่า Default Parameters (No Tuning)
+
+จากการทดลองพบว่าโมเดล **Random Forest** ให้ประสิทธิภาพสูงสุด เหนือกว่าโมเดลพื้นฐาน (Logistic Regression) และโมเดลซับซ้อน (XGBoost) ที่ยังไม่ได้ปรับจูน
+
+* 🏆 **Best Model:** Random Forest
+* 🎯 **F1-score:** **83.33%**
+* 🎯 **Precision:** **90.91%**
+
+#### 🔍 Key Insights & Feature Importance
+Random Forest สามารถจับ **"ลายเซ็น" (Signature)** ของ Phishing Email ได้ดีที่สุดผ่านฟีเจอร์หลัก 3 อันดับแรก:
+
+1.  **`punctuation_frequency` (10.0%)**: พฤติกรรมการใช้เครื่องหมายวรรคตอนที่ฟุ่มเฟือยผิดปกติ
+2.  **`first_person_pronoun_count` (7.5%)**: การใช้สรรพนามแทนตนเอง (I, We, My) เพื่อสร้างเรื่องราว (Storytelling)
+3.  **`ling_digit_count` (6.9%)**: การปรากฏของตัวเลขในเนื้อหา (เช่น จำนวนเงิน, รหัสอ้างอิง)
+
+**สรุป:** ผลลัพธ์นี้สะท้อนให้เห็นว่า แม้ในสภาวะเริ่มต้นที่ไม่มีการปรับแต่งค่า (Untuned) โมเดลตระกูล Ensemble Tree อย่าง Random Forest มีความเสถียรและสามารถตรวจจับความผิดปกติเชิงโครงสร้างภาษาเหล่านี้ได้ดีที่สุด 
 
 
 # 3. Propose new ideas based on your research
 
-Project นี้เป็นการพัฒนาระบบตรวจจับ **Phishing Email** โดยมีเป้าหมายเพื่อต่อยอดจากงานวิจัยเดิม (Reproduce) และนำเสนอแนวทางใหม่ (New Ideas) เพื่อเพิ่มประสิทธิภาพความแม่นยำ โดยเปรียบเทียบระหว่างเทคนิค **Stylometric Analysis** (การวิเคราะห์สไตล์การเขียนแบบเดิม) กับการใช้ **NLP (TF-IDF)** และ **Advanced Features** (พฤติกรรมการหลอกลวง)
+   Project นี้เป็นการพัฒนาระบบตรวจจับ **Phishing Email** โดยมีเป้าหมายเพื่อต่อยอดจากงานวิจัยเดิม (Reproduce) และนำเสนอแนวทางใหม่ (New Ideas) เพื่อเพิ่มประสิทธิภาพความแม่นยำ โดยเปรียบเทียบระหว่างเทคนิค **Stylometric Analysis** (การวิเคราะห์สไตล์การเขียนแบบเดิม) กับการใช้ **NLP (TF-IDF)** และ **Advanced Features** (พฤติกรรมการหลอกลวง)
 
 ### 🧪 Experimental Setup
 
