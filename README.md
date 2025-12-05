@@ -202,7 +202,20 @@ flowchart TD
 
 ---
 
+
+# ⚖️ Features selection 
+
+<img width="318" height="22" alt="{7F031135-3396-4A4E-B455-F89D4B8DBDC1}" src="https://github.com/user-attachments/assets/42dfac77-00e6-4f1d-adbe-6cade2423618" />
+
+<img width="967" height="884" alt="image" src="https://github.com/user-attachments/assets/65ea2bfd-a9ca-4291-89ca-778b55d3c300" />
+
+
+
+
+---
+
 # 📋 Result
+
 
 # Experiment : Reproduce Stylometric only
 
@@ -255,9 +268,10 @@ _ตารางที่ 8 ผลลัพธ์การ Reproduce และ�
 
 _ตารางที่ 9 Confusion matrix ของการทำ Reproduce และเพิ่ม 8 Advance Features_  
 
-<img width="1073" height="451" alt="image" src="https://github.com/user-attachments/assets/7e6a9f9c-d316-40f6-ad25-f2f9e2fa7d02" />
+<img width="1073" height="451" alt="image" src="https://github.com/user-attachments/assets/7e6a   9f9c-d316-40f6-ad25-f2f9e2fa7d02" />
 
 _แผนภูมิที่ 2 Top 10 feature ที่มีอิทธิพลต่อ Model XGBoost (รวม Advance Feature)_   
+
 
    **สรุปผลลัพธ์**
    - จากการทดลอง Experiment A ที่ได้นำเสนอไอเดียใหม่โดยการเพิ่ม 8 Advanced Features เข้ากับ Stylometric Features เดิม พบว่าโมเดล XGBoost ยังคงเป็น Model ที่มีประสิทธิภาพสูงที่สุด และยังเพิ่มประสิทธิภาพสูงขึ้นอย่างชัดเจนจากการทดสอบเดิม โดยทำค่า F1-score ได้ถึง 88.00% (สูงกว่างาน Reproduce ที่ทำได้ 83.33%) พร้อมค่า Precision ที่สูงถึง 91.67% โดยจุดเปลี่ยนสำคัญ อยู่ที่การเพิ่มฟีเจอร์ด้านพฤติกรรม (Behavioral Features) เข้ามา โดยเฉพาะ Action_Time_Coercion_Density ที่กลายเป็น Feature ที่มีอิทธิพลสูงสุด (Feature Importance 15.9%) มากกว่า Feature เดิม จึงบ่งชี้ได้ว่า Model ยังสามารถเรียนรู้ "เจตนาการบีบคั้น" ของคนร้ายที่ต้องการให้เหยื่อรีบกระทำบางอย่างได้ และเมื่อทำงานร่วมกับสัญญาณการตะโกนกดดัน (upper_ratio) และการสร้างฟอร์มทางการปลอม (char_freq_[) ทำให้ Model ยกระดับจากการมองแค่เพียง "สไตล์การเขียน" มาเป็นการตรวจจับที่ "กลยุทธ์การหลอกลวง" (Deception Tactics) เพิ่มเติม ส่งผลให้สามารถคัดกรองอีเมล Phishing ได้อย่างแม่นยำและครอบคลุมยิ่งขึ้นกว่างานวิจัยเดิม
