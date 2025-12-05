@@ -121,10 +121,10 @@ Random Forest สามารถจับ **"ลายเซ็น" (Signature)*
 
 ตารางเปรียบเทียบการออกแบบการทดลองทั้ง 5 รูปแบบ เพื่อแสดงความแตกต่างของเทคนิคที่ใช้ในแต่ละ Experiment
 
-| การทดลอง (Experiment) | รายละเอียด (Description) | Tuning Model | Feature Selection | Stylometric Features | Advanced Features | TF-IDF | Models |
+| การทดลอง (Experiment) | รายละเอียด (Description) | Tuning Model | Feature Selection | Stylometric Features | Advanced Features |  TF-IDF  | Models |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1. 🔁 Reproduce (Untuned)** | **Baseline:** จำลองตาม Paper 100% (Raw Data) | | | ✅ | | | 4 |
-| **2. 🚀 Reproduce (Tuned)** | **Optimized:** ปรับปรุง Baseline ด้วยการจูนและคัดกรอง | ✅ | ✅ | ✅ | | | 9 |
+| **1. 🔁 Reproduce (Untuned)** | **Baseline:** จำลองตาม Features ตาม Paper 100%  | | | ✅ | | | 4 |
+| **2. 🚀 Reproduce (Tuned)** | **Optimized:** ปรับปรุง Hyperameter ด้วยการจูนและทำ Features selection | ✅ | ✅ | ✅ | | | 9 |
 | **3. 💡 Experiment A** | **Behavioral:** เพิ่มฟีเจอร์จับพฤติกรรม/เจตนา | ✅ | ✅ | ✅ | ✅ | | 9 |
 | **4. 📝 Experiment B** | **Content-based:** ใช้ NLP (TF-IDF) จับ Keywords | ✅ | ✅ | | | ✅ | 9 |
 | **5. 🧬 Experiment C** | **Hybrid:** รวมทุกเทคนิค (Style + Behv + Content) | ✅ | ✅ | ✅ | ✅ | ✅ | 9 |
@@ -134,6 +134,42 @@ Random Forest สามารถจับ **"ลายเซ็น" (Signature)*
 > * **Feature Selection:** การตัดฟีเจอร์ที่ซ้ำซ้อน (Correlation > 0.95) หรือการคัดเลือกคำศัพท์สำคัญ (Max Features)
 > * **Models:** จำนวนโมเดลที่ใช้ทดสอบ (4 Models = ตาม Paper, 9 Models = เพิ่มโมเดลใหม่ๆ เข้าไป)
 
+
+
+### 🧪 Experimental Setup
+
+เราได้ออกแบบการทดลองออกเป็นทั้งหมด **5 รูปแบบ** โดยแบ่งเป็นกลุ่ม **Reproduce** (ทำซ้ำงานวิจัยเดิม) และกลุ่ม **New Ideas** (แนวคิดใหม่) เพื่อเปรียบเทียบประสิทธิภาพตั้งแต่ระดับพื้นฐาน (Baseline) ไปจนถึงระดับสูง (Hybrid) ดังนี้
+
+#### 1. รายละเอียดรูปแบบการทดลอง (Overview)
+
+| การทดลอง (Experiment) | รายละเอียด (Description) | Features ที่ใช้ | Models |
+| :--- | :--- | :--- | :--- |
+| **1. 🔁 Reproduce (Untuned)** | **Baseline:** จำลองตาม Paper 100% <br>*(ไม่จูน Hyperparameter, ไม่ตัด Feature)* | **Raw Stylometric** <br>*(~60 features)* | 4 Models <br>*(ตาม Paper)* |
+| **2. 🚀 Reproduce (Tuned)** | **Optimized:** ปรับปรุง Baseline <br>*(จูนด้วย Optuna + ตัด Feature ซ้ำซ้อน)* | **Filtered Stylometric** <br>*(ตัด High Correlation)* | 9 Models |
+| **3. 💡 Experiment A** | **Behavioral (New Idea):** <br>เพิ่มฟีเจอร์จับพฤติกรรม/เจตนาหลอกลวง | **Stylometric + 8 Advanced** | 9 Models |
+| **4. 📝 Experiment B** | **Content-based (New Idea):** <br>ใช้ NLP (TF-IDF) จับ Keywords สำคัญ | **TF-IDF Only** <br>*(Max 300 features)* | 9 Models |
+| **5. 🧬 Experiment C** | **Hybrid (New Idea):** <br>รวมทุกเทคนิคเข้าด้วยกัน | **Stylo + Advanced + TF-IDF** | 9 Models |
+
+---
+
+#### 2. เปรียบเทียบองค์ประกอบทางเทคนิค (Technical Matrix)
+
+ตารางเช็คลิสต์แสดงเทคนิคและฟีเจอร์ที่เปิดใช้งานในแต่ละการทดลอง
+
+| การทดลอง (Experiment) | Tuning Model | Feature Selection | Stylometric Features | Advanced Features | TF-IDF |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **1. 🔁 Reproduce (Untuned)** | | | ✅ | | |
+| **2. 🚀 Reproduce (Tuned)** | ✅ | ✅ | ✅ | | |
+| **3. 💡 Experiment A** | ✅ | ✅ | ✅ | ✅ | |
+| **4. 📝 Experiment B** | ✅ | ✅ | | | ✅ |
+| **5. 🧬 Experiment C** | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+> **คำอธิบายเพิ่มเติม:**
+> * **Tuning Model:** การใช้ `Optuna` เพื่อค้นหาค่า Hyperparameter ที่ดีที่สุด (20 Trials)
+> * **Feature Selection:** การตัดฟีเจอร์ที่ซ้ำซ้อนกันสูง (Correlation > 0.95)
+> * **Models:**
+>   * *4 Models:* Logistic, SVM, RandomForest, XGBoost
+>   * *9 Models:* เพิ่ม AdaBoost, CatBoost, LightGBM, NaiveBayes, DecisionTree
 
 
 ---
