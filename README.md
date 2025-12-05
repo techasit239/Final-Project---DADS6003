@@ -103,42 +103,10 @@ Random Forest สามารถจับ **"ลายเซ็น" (Signature)*
 
    Project นี้เป็นการพัฒนาระบบตรวจจับ **Phishing Email** โดยมีเป้าหมายเพื่อต่อยอดจากงานวิจัยเดิม (Reproduce) และนำเสนอแนวทางใหม่ (New Ideas) เพื่อเพิ่มประสิทธิภาพความแม่นยำ โดยเปรียบเทียบระหว่างเทคนิค **Stylometric Analysis** (การวิเคราะห์สไตล์การเขียนแบบเดิมตามงานวิจัย) กับการใช้ **NLP (TF-IDF)** และ **Advanced Features** (พฤติกรรมการหลอกลวง)
 
-### 🧪 Experimental Setup
-
-ได้ออกแบบการทดลองออกเป็นทั้งหมด 5 รูปแบบ โดยแบ่งเป็น 1 รูปแบบเดิมตามงานวิจัย และ 4 รูปแบบใหม่
-เพื่อเปรียบเทียบประสิทธิภาพตั้งแต่การทำซ้ำงานวิจัยเดิม (Baseline) ไปจนถึงการปรับปรุงด้วยเทคนิคใหม่ๆ (New Ideas)
-
-| การทดลอง (Experiment) | รายละเอียด (Description) | Features ที่ใช้ | Models |
-| :--- | :--- | :--- | :--- |
-| **0. 🔁 Reproduce (Untuned)** | **Baseline:** จำลองตาม Paper 100% <br>*(ไม่จูน Hyperparameter, ไม่ตัด Feature)* | **Raw Stylometric** <br>*(~60 features)* | 4 Models <br>*(ตาม Paper)* |
-| **1. 💡 Reproduce (Tuned)** | **Optimized Baseline:** ปรับปรุงจากข้อ 1 <br>*(จูนด้วย Optuna + ตัด Feature ซ้ำซ้อน)* | **Filtered Stylometric** <br>*(ตัด High Correlation)* | 9 Models |
-| **2. 💡 Experiment A** | **Behavioral (New Idea):** <br>เพิ่มฟีเจอร์จับพฤติกรรม/เจตนาหลอกลวง | **Stylometric + 8 Advanced** | 9 Models |
-| **3. 💡 Experiment B** | **Content-based (New Idea):** <br>ใช้ NLP (TF-IDF) จับ Keywords สำคัญ | **TF-IDF Only** <br>*(Max 300 features)* | 9 Models |
-| **4. 💡 Experiment C** | **Hybrid (New Idea):** <br>รวมทุกเทคนิคเข้าด้วยกัน | **Stylometric + Advanced + TF-IDF** | 9 Models |
-
 
 ### 🧪 Experimental Setup
 
-ตารางเปรียบเทียบการออกแบบการทดลองทั้ง 5 รูปแบบ เพื่อแสดงความแตกต่างของเทคนิคที่ใช้ในแต่ละ Experiment
-
-| การทดลอง (Experiment) | รายละเอียด (Description) | Tuning Model | Feature Selection | Stylometric Features | Advanced Features |  TF-IDF  | Models |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1. 🔁 Reproduce (Untuned)** | **Baseline:** จำลองตาม Features ตาม Paper 100%  | | | ✅ | | | 4 |
-| **2. 🚀 Reproduce (Tuned)** | **Optimized:** ปรับปรุง Hyperameter ด้วยการจูนและทำ Features selection | ✅ | ✅ | ✅ | | | 9 |
-| **3. 💡 Experiment A** | **Behavioral:** เพิ่มฟีเจอร์จับพฤติกรรม/เจตนา | ✅ | ✅ | ✅ | ✅ | | 9 |
-| **4. 📝 Experiment B** | **Content-based:** ใช้ NLP (TF-IDF) จับ Keywords | ✅ | ✅ | | | ✅ | 9 |
-| **5. 🧬 Experiment C** | **Hybrid:** รวมทุกเทคนิค (Style + Behv + Content) | ✅ | ✅ | ✅ | ✅ | ✅ | 9 |
-
-> **หมายเหตุ:**
-> * **Tuning Model:** การใช้ Optuna เพื่อหาค่า Hyperparameter ที่ดีที่สุด
-> * **Feature Selection:** การตัดฟีเจอร์ที่ซ้ำซ้อน (Correlation > 0.95) หรือการคัดเลือกคำศัพท์สำคัญ (Max Features)
-> * **Models:** จำนวนโมเดลที่ใช้ทดสอบ (4 Models = ตาม Paper, 9 Models = เพิ่มโมเดลใหม่ๆ เข้าไป)
-
-
-
-### 🧪 Experimental Setup
-
-เราได้ออกแบบการทดลองออกเป็นทั้งหมด **5 รูปแบบ** โดยแบ่งเป็นกลุ่ม **Reproduce** (ทำซ้ำงานวิจัยเดิม) และกลุ่ม **New Ideas** (แนวคิดใหม่) เพื่อเปรียบเทียบประสิทธิภาพตั้งแต่ระดับพื้นฐาน (Baseline) ไปจนถึงระดับสูง (Hybrid) ดังนี้
+เราได้ออกแบบการทดลองออกเป็นทั้งหมด **5 รูปแบบ** โดยแบ่งเป็นกลุ่ม **Reproduce** (ทำซ้ำงานวิจัยเดิม) และกลุ่ม **New Ideas** (แนวคิดใหม่) เพื่อเปรียบเทียบประสิทธิภาพตั้งแต่ระดับพื้นฐาน (Baseline) ไปจนถึงระดับผสมผสาน (Hybrid) ดังนี้
 
 #### 1. รายละเอียดรูปแบบการทดลอง (Overview)
 
