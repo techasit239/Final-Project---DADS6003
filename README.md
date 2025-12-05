@@ -205,9 +205,9 @@ flowchart TD
 
 # ⚖️ Features selection 
 
-<img width="318" height="22" alt="{7F031135-3396-4A4E-B455-F89D4B8DBDC1}" src="https://github.com/user-attachments/assets/42dfac77-00e6-4f1d-adbe-6cade2423618" />
+<img width="954" height="66" alt="{7F031135-3396-4A4E-B455-F89D4B8DBDC1}" src="https://github.com/user-attachments/assets/42dfac77-00e6-4f1d-adbe-6cade2423618" />
 
-<img width="967" height="884" alt="image" src="https://github.com/user-attachments/assets/65ea2bfd-a9ca-4291-89ca-778b55d3c300" />
+<img width="484" height="442" alt="image" src="https://github.com/user-attachments/assets/65ea2bfd-a9ca-4291-89ca-778b55d3c300" />
 
 
 
